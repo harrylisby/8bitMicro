@@ -4,14 +4,14 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 ENTITY ALU IS
-	PORT(	A: 	in	 	std_logic_vector(7 downto 0);
-			B: 	in 	std_logic_vector(7 downto 0);
-			Ci:	in 	std_logic;
-			R:		out 	std_logic_vector(7 downto 0);
-			Zo:	out 	std_logic;
-			Co: 	out 	std_logic;
-			Op:  	in 	std_logic_vector(3 downto 0);
-			HEX:	out 	std_logic_vector(27 downto 0)
+	PORT(	A: in std_logic_vector(7 downto 0);
+		B: in std_logic_vector(7 downto 0);
+		Ci: in std_logic;
+		R: out std_logic_vector(7 downto 0);
+		Zo: out std_logic;
+		Co: out	std_logic;
+		Op: in std_logic_vector(3 downto 0);
+		HEX: out std_logic_vector(27 downto 0)
 	);
 END ENTITY;
 	

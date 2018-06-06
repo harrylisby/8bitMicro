@@ -4,13 +4,13 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 ENTITY ALU_CTRL IS
 	PORT(
-		clk:				in 	std_logic;								--reloj maestro del sistema
-		valueOutput:	out	std_logic_vector(7 downto 0);		--resultado de operación
-		Zout:				out	std_logic;								--zout
-		carryOut:		out 	std_logic;								--carry de salida 1 bit
-		cState:			out 	std_logic_vector(1 downto 0);
-		HEXOUT:			out   std_logic_vector(27 downto 0);   --leds salidas hex
-		RST: 				in  	std_logic
+		clk: in	std_logic; --reloj maestro del sistema
+		valueOutput: out std_logic_vector(7 downto 0); --resultado de operación
+		Zout: out std_logic; --zout
+		carryOut: out std_logic; --carry de salida 1 bit
+		cState:	out std_logic_vector(1 downto 0);
+		HEXOUT:	out std_logic_vector(27 downto 0); --leds salidas hex
+		RST: in	std_logic
 	);
 END ENTITY;
 
@@ -41,19 +41,19 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	
 BEGIN
 
-	XALU: ENTITY work.ALU PORT MAP(	A	=> regW,
-												B  => regB,
-												Ci	=> carryInput,
-												R	=> rValue,
-												Zo	=> ZoReg,
-												Co	=> CoReg,
-												Op => opIn,
-												HEX => hexReg
-											);
+	XALU: ENTITY work.ALU PORT MAP(	A => regW,
+					B  => regB,
+					Ci => carryInput,
+					R => rValue,
+					Zo => ZoReg,
+					Co => CoReg,
+					Op => opIn,
+					HEX => hexReg
+				      );
 											
 	XROM: ENTITY work.ROM PORT MAP(	addr => addrReg,
-												data => dataReg
-											);
+					data => dataReg
+				      );
 
 	PROCESS(state,carryInput,RST,PC)
 	BEGIN
