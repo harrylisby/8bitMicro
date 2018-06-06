@@ -28,7 +28,7 @@
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2
+    tabsize=1
 }
  
 \lstset{style=mystyle}
@@ -36,162 +36,108 @@
 \setlength{\parindent}{0.5cm}
 \graphicspath{{ImagenesL1/}}
 
-\title{Laboratorio 4: Unidad Aritmético-lógica (ALU) con
-control secuencial}
+\title{Laboratorio 1: Implementación de una ROM}
 \author{Allison Lisby, Harry Lisby}
 \date{\today}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-En el presente laboratorio se realizará la síntesis de una ALU (Arithmetic Logic Unit) de 8 bits con el uso del lenguaje VHDL.
+En el presente laboratorio se implementará una ROM [Read-Only Memory] al sistema controlador implementado anteriormente, esto requerirá de ciertas modificaciones tanto en la instancia de la ALU, como en las señales y máquina de estados anteriores.
 \end{abstract}
 
 
 \section{Descripción del sistema}
-\indent Se realizará la síntesis de un sistema llamado ALU que realiza operaciones tanto aritméticas como lógicas.\\
-\indent La ALU estará formada por cuatro entradas y tres salidas. Las entradas serán: A y B como operandos y además, Op y Ci como las entradas de la unidad de control. Y las salidas serán: Zo y Co como estados de la salida y por último la salida R.\\
 
 \section{Listados de programa} 
 \indent En el siguiente listado se presentará el código de descripción de hardware implementado para este laboratorio.\\
 \indent Se implementa casi la misma descripción de entidad y arquitectura de la ALU del laboratorio anterior. Lo único que cambia es que las entradas A y B, y la salida R ahora serán de 8 bits.\\
-\indent Además, a continuación se observa que se crea una salida con el nombre \textit{HEX}, la cual nos permite crear indicadores de estado en el display.\\
+\indent Adicionalmente fué creada una ROM para almacenar el programa a ser ejecutado durante la presente evaluación. \\
+\indent Con lo anterior también fué necesario crear una instancia de la ROM en el controlador con el objetivo de poderlo utilizar en el proceso correspondiente.\\
+\indent Primeramente se crea la entidad correspondiente a la ROM, en este caso solo es necesario una entrada y una salida, ambos vectores.\\
 
 \begin{lstlisting}[language=VHDL]
-ENTITY ALU IS
-	PORT(	A: 	in	 	std_logic_vector(7 downto 0);
-			B: 	in 	std_logic_vector(7 downto 0);
-			Ci:	in 	std_logic;
-			R:		out 	std_logic_vector(7 downto 0);
-			Zo:	out 	std_logic;
-			Co: 	out 	std_logic;
-			Op:  	in 	std_logic_vector(3 downto 0);
-			HEX:	out 	std_logic_vector(27 downto 0)
-	);
-END ENTITY;
+ENTITY ROM IS
+  PORT(addr: in std_logic_vector(3 downto 0);
+       
+       data: out std_logic_vector(11 downto 0)
+      );
+END ENTITY ROM;
 \end{lstlisting}
 
-\indent Por aparte se crea la entidad principal con el reloj, una entrada \textit{valueInput} para la lectura del valor y operación, y demás salidas. 
+\indent Por otra parte se crea la arquitectura, la cual contiene un condicional \textit{CASE} que dependiendo del valor entrante \textit{addr}, escribirá un valor asociado a tal dirección en \textit{data}: \\
 
 \begin{lstlisting}[language=VHDL]
-ENTITY ALU_CTRL IS
-	PORT(
-		clk:				in 	std_logic;								
-		valueInput:			in 	std_logic_vector(7 downto 0);		
-		carryInput: 		in 	std_logic;								
-		valueOutput:		out	std_logic_vector(7 downto 0);		
-		Zout:				out	std_logic;							
-		carryOut:			out 	std_logic;								
-		cState:				out 	std_logic_vector(1 downto 0);
-		HEXOUT:				out   std_logic_vector(27 downto 0)    
-	);
-END ENTITY;
-\end{lstlisting}
-
-\indent Seguidamente se inicia la \textit{ARQUITECTURA} en donde se declaran las diferentes señales correspondientes a las entradas y salidas de la ALU.\\
-
-\begin{lstlisting}{lenguage=VHDL}
-ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
-	
-	TYPE status IS (firstValue, secondValue, opSelect,result);
-	
-	SIGNAL state:status:=firstValue;
-	SIGNAL nState:status;
-	SIGNAL regA: std_logic_vector(7 downto 0);
-	SIGNAL regB: std_logic_vector(7 downto 0);
-	SIGNAL rValue: std_logic_vector(7 downto 0);
-	SIGNAL ZoReg: std_logic;
-	SIGNAL CoReg: std_logic;
-	SIGNAL opIn: std_logic_vector(3 downto 0);
-	SIGNAL hexReg: std_logic_vector(27 downto 0);
-\end{lstlisting}
-
-\indent Luego se le asignan las entradas y salidas de la ALU a las señales anteriormente declaradas.\\
-
-\begin{lstlisting}[language=VHDL]
+ARCHITECTURE ROM_ARCH OF ROM IS
 BEGIN
-
-	XALU: ENTITY work.ALU PORT MAP(	A	=> regA,
-												B  => regB,
-												Ci	=> carryInput,
-												R	=> rValue,
-												Zo	=> ZoReg,
-												Co	=> CoReg,
-												Op => opIn,
-												HEX => hexReg
-											);
-\end{lstlisting}
-
-\indent Se crea al decodificador de próximo estado utilizando los estados creados en la declaración de la arquitectura.\\
-
-\begin{lstlisting}[language=VHDL]		
-	PROCESS(state,valueInput,carryInput)
+	PROCESS(addr)
 	BEGIN
-		CASE state IS
-			WHEN firstValue =>
-				regA <=  valueInput;
-				cState <= "01";
-				nState <= secondValue;
-			WHEN secondValue =>
-				regB <= valueInput;
-				cState <= "10";
-				nState <= opSelect;
-			WHEN opSelect =>
-				opIn <= valueInput(3 downto 0);
-				cState <= "11";
-				nState <= result;
-			WHEN result =>
-				nState <= firstValue;
-				cState <= "00";
-		END CASE;
-	END PROCESS;
+		CASE(addr) IS
+			WHEN "0000" => data <= "100100001111";
+			WHEN "0001" => data <= "110000001100";
+			WHEN "0010" => data <= "010111110000";
+			WHEN "0011" => data <= "011000000011";
+			WHEN "0100" => data <= "010011111111";
+			WHEN "0101" => data <= "110001100100";
+			WHEN "0110" => data <= "110111001000";
+			WHEN "0111" => data <= "110001100100";
+			WHEN "1000" => data <= "010100001100";
+			...
 \end{lstlisting}
 
-\indent Seguidamente se muestra el proceso correspondiente al decodificador de salida.\\
+\indent El proceso de instanciar la ROM se efectuó de la siguiente manera:\\
 
 \begin{lstlisting}[language=VHDL]
-	PROCESS(rValue,state,ZoReg,CoReg,hexReg)
-	BEGIN
-		CASE state IS
-			WHEN firstValue =>
-				valueOutput <= "00000000";
-				HEXOUT<="1000001000100010001111111001";
-			WHEN secondValue =>
-				valueOutput <= "00000000";
-				HEXOUT<="1000001000100010001110100100";
-			WHEN opSelect =>
-				HEXOUT<=hexReg;
-			WHEN result =>
-				valueOutput <= rValue;
-				Zout <= ZoReg;
-				CarryOut <= CoReg;
-				HEXOUT<="0101111000011000100101111111";
-		END CASE;
-	END PROCESS;
+XROM: ENTITY work.ROM PORT MAP
+	(addr => addrReg,
+	 data => dataReg
+	);
 \end{lstlisting}
 
-\indent Finalmente, se realiza la descripción del \textit{CLK}, y así se finaliza el diseño de la ALU.
+\indent El proceso correspondiente al nuevo sistema, el cual incluye la nueva ROM y la pone a trabajar en conjunto con la ALU implementada anteriormente se muestra en el siguiente código.\\
+\indent Esta es una máquina de estados que inicialmente tiene un condicional con el solo propósito de tener la posibilidad de hacer reset al sistema. Luego de este condicional nos encontramos un case que evalúa el estado actual y dependiendo de cada uno de estos se realiza un conjunto de operaciones diferentes.\\
+\indent El estado \textit{progmemRead} se encarga de leer introducir el valor del contador de programa en el registro de dirección que controla la ROM, al mismo tiempo se obtiene el valor almacenado en esta dirección el cual es guardado en el \textit{Instruction Register [IR]}. Adicionalmente se mueve el valor almacenado en el registro \textit{CoBuffer} a la entrada de acarreo para la siguiente operación.\\
+\indent En el estado \textit{moveToRegisters} se divide o trunca IR en dos registros diferentes, uno de ellos es S que almacena la instrucción u operación que hará la ALU y otro llamado \textit{regB} el cual contiene la información o dato a ser operado. Luego de esto se mueve el valor de S a \textit{opIn} de la ALU y al mismo tiempo se inserta el valor almacenado en W al registro W o entrada A en la ALU. Con esto solo queda mover el acarreo resultante de la operación a \textit{CoBuffer} para poder ser utilizado en la siguiente operación.\\
+\indent Finalmente en el estado \textit{resultToW} se lee el valor en la salida de la ALU y es guardado en el registro W para poder ser utilizado en una siguiente operación. En este mismo se incrementa en uno el valor del contador de programa \textit{[PC} y con esto se tiene listo un ciclo de cálculo del presente controlador.\\
+
 
 \begin{lstlisting}[language=VHDL]
-	PROCESS(nState,clk)
+PROCESS(state,carryInput,RST,PC)
 	BEGIN
-		IF (clk'event AND clk = '0') THEN 
-			state <= nState;
+		IF(rst='0') THEN
+			PC<="0000";
+			W<="00000000";
+		ELSE
+			CASE state IS	
+				WHEN progmemRead =>
+					addrReg <= PC;
+					IR <= dataReg;
+					nState <= moveToRegisters;
+					CarryInput <= CoBuffer;
+
+				WHEN moveToRegisters =>
+					S <= IR(11 downto 8);
+					regB <= IR(7 downto 0);
+					regW <= W;
+					opIn <= S;
+					nState <= resultToW;
+					CoBuffer <= CoReg;
+
+				WHEN resultToW =>
+					W <= rValue;	
+					nState <= progmemRead;
+					PC <= addrReg + '1';	
+			END CASE;
 		END IF;
 	END PROCESS;
-END ARCHITECTURE;
 \end{lstlisting}
 
-\section{Resultados Obtenidos}
-\indent Se crean las modificaciones respectivas obteniendo así una ALU capaz de trabajar con 8 bits en sus entradas y salida.\\
-\indent Con el diseño del algoritmo de control se logra de manera bastante simplificada brindar y mostrar al usuario las diferentes opciones, facilitando la utilización de la ALU.\\
-\indent Con la implementación de una máquina de estados se generan los pasos necesarios para utilizar la ALU y al mismo tiempo dar indicadores adecuados de lo que está sucediendo en todo momento.\\
-\indent Se utiliza diseño estructural con la finalidad de simplificar el proceso de adaptar la ALU previamente descrita y modificada. Obteniendo la capacidad de controlarla de manera externa y permitiendo instanciar el mismo dispositivo múltiples ocaciones.\\
-\indent Con todo esto se logró una mejor organización en el funcionamiento de la ALU, así como una gran simplificación en la manera de implementar el sistema para facilidad de uso.\\
-
 \section{CONCEPTOS APRENDIDOS}
-\indent En este laboratorio se investigó y retomó el tema de diseño estructural, permitiendo de esta manera la implementación de la ALU de una manera muy simplificada.\\
-\indent Se encontraron nuevas maneras de manipular los bits en una entrada, salida o señal, dando oportunidad de simplificar algunas de las funciones previamente implementadas.\\
-\indent Se aprendió sobre nuevas maneras de generar interfaces en la placa de desarrollo Altera DE-1, ofreciendo así la posibilidad de dar al usuario una interfaz visual sobre el estado actual del dispositivo.\\
+
+\section{ASPECTOS POR MEJORAR}
+\indent En el presente laboratorio se encontraron diversas oportunidades de mejora, principalmente con adiciones a la implementación evaluada. Uno de estos casos es en el momento en que se termina el programa en la memoria del programa y en lugar de seguir recorriendo toda la memoria hasta que el valor sea nuevamente "0000", que exista un comando de reinicio.\\
+\indent También sería posible implementar un selector de programa, con la finalidad de tener múltiples programas disponibles y seleccionables según el uso que se le quiera dar al microcontrolador.\\
+\indent Podría existir un flag con el objetivo de desactivar o limpiar el carry out o in, esto para situaciones donde se cambia a otra operación totalmente diferente a la cadena o proceso anterior y no se quiere preservar un carry out resultante de tal proceso.\\
+\indent Otra mejora podría ser que por un pulso de reloj se corra por todo el programa y solo se muestre el resultado final, así se podría pasar a combinar diferentes programas para lograr un resultado y no necesariamente ir de estado en estado y dirección por dirección de memoria.\\
 
 \end{document}
