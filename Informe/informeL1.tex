@@ -1,0 +1,197 @@
+\documentclass[12pt, letterpaper]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+
+\setlength{\parindent}{0.5cm}
+\graphicspath{{ImagenesL1/}}
+
+\title{Laboratorio 4: Unidad Aritmético-lógica (ALU) con
+control secuencial}
+\author{Allison Lisby, Harry Lisby}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+En el presente laboratorio se realizará la síntesis de una ALU (Arithmetic Logic Unit) de 8 bits con el uso del lenguaje VHDL.
+\end{abstract}
+
+
+\section{Descripción del sistema}
+\indent Se realizará la síntesis de un sistema llamado ALU que realiza operaciones tanto aritméticas como lógicas.\\
+\indent La ALU estará formada por cuatro entradas y tres salidas. Las entradas serán: A y B como operandos y además, Op y Ci como las entradas de la unidad de control. Y las salidas serán: Zo y Co como estados de la salida y por último la salida R.\\
+
+\section{Listados de programa} 
+\indent En el siguiente listado se presentará el código de descripción de hardware implementado para este laboratorio.\\
+\indent Se implementa casi la misma descripción de entidad y arquitectura de la ALU del laboratorio anterior. Lo único que cambia es que las entradas A y B, y la salida R ahora serán de 8 bits.\\
+\indent Además, a continuación se observa que se crea una salida con el nombre \textit{HEX}, la cual nos permite crear indicadores de estado en el display.\\
+
+\begin{lstlisting}[language=VHDL]
+ENTITY ALU IS
+	PORT(	A: 	in	 	std_logic_vector(7 downto 0);
+			B: 	in 	std_logic_vector(7 downto 0);
+			Ci:	in 	std_logic;
+			R:		out 	std_logic_vector(7 downto 0);
+			Zo:	out 	std_logic;
+			Co: 	out 	std_logic;
+			Op:  	in 	std_logic_vector(3 downto 0);
+			HEX:	out 	std_logic_vector(27 downto 0)
+	);
+END ENTITY;
+\end{lstlisting}
+
+\indent Por aparte se crea la entidad principal con el reloj, una entrada \textit{valueInput} para la lectura del valor y operación, y demás salidas. 
+
+\begin{lstlisting}[language=VHDL]
+ENTITY ALU_CTRL IS
+	PORT(
+		clk:				in 	std_logic;								
+		valueInput:			in 	std_logic_vector(7 downto 0);		
+		carryInput: 		in 	std_logic;								
+		valueOutput:		out	std_logic_vector(7 downto 0);		
+		Zout:				out	std_logic;							
+		carryOut:			out 	std_logic;								
+		cState:				out 	std_logic_vector(1 downto 0);
+		HEXOUT:				out   std_logic_vector(27 downto 0)    
+	);
+END ENTITY;
+\end{lstlisting}
+
+\indent Seguidamente se inicia la \textit{ARQUITECTURA} en donde se declaran las diferentes señales correspondientes a las entradas y salidas de la ALU.\\
+
+\begin{lstlisting}{lenguage=VHDL}
+ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
+	
+	TYPE status IS (firstValue, secondValue, opSelect,result);
+	
+	SIGNAL state:status:=firstValue;
+	SIGNAL nState:status;
+	SIGNAL regA: std_logic_vector(7 downto 0);
+	SIGNAL regB: std_logic_vector(7 downto 0);
+	SIGNAL rValue: std_logic_vector(7 downto 0);
+	SIGNAL ZoReg: std_logic;
+	SIGNAL CoReg: std_logic;
+	SIGNAL opIn: std_logic_vector(3 downto 0);
+	SIGNAL hexReg: std_logic_vector(27 downto 0);
+\end{lstlisting}
+
+\indent Luego se le asignan las entradas y salidas de la ALU a las señales anteriormente declaradas.\\
+
+\begin{lstlisting}[language=VHDL]
+BEGIN
+
+	XALU: ENTITY work.ALU PORT MAP(	A	=> regA,
+												B  => regB,
+												Ci	=> carryInput,
+												R	=> rValue,
+												Zo	=> ZoReg,
+												Co	=> CoReg,
+												Op => opIn,
+												HEX => hexReg
+											);
+\end{lstlisting}
+
+\indent Se crea al decodificador de próximo estado utilizando los estados creados en la declaración de la arquitectura.\\
+
+\begin{lstlisting}[language=VHDL]		
+	PROCESS(state,valueInput,carryInput)
+	BEGIN
+		CASE state IS
+			WHEN firstValue =>
+				regA <=  valueInput;
+				cState <= "01";
+				nState <= secondValue;
+			WHEN secondValue =>
+				regB <= valueInput;
+				cState <= "10";
+				nState <= opSelect;
+			WHEN opSelect =>
+				opIn <= valueInput(3 downto 0);
+				cState <= "11";
+				nState <= result;
+			WHEN result =>
+				nState <= firstValue;
+				cState <= "00";
+		END CASE;
+	END PROCESS;
+\end{lstlisting}
+
+\indent Seguidamente se muestra el proceso correspondiente al decodificador de salida.\\
+
+\begin{lstlisting}[language=VHDL]
+	PROCESS(rValue,state,ZoReg,CoReg,hexReg)
+	BEGIN
+		CASE state IS
+			WHEN firstValue =>
+				valueOutput <= "00000000";
+				HEXOUT<="1000001000100010001111111001";
+			WHEN secondValue =>
+				valueOutput <= "00000000";
+				HEXOUT<="1000001000100010001110100100";
+			WHEN opSelect =>
+				HEXOUT<=hexReg;
+			WHEN result =>
+				valueOutput <= rValue;
+				Zout <= ZoReg;
+				CarryOut <= CoReg;
+				HEXOUT<="0101111000011000100101111111";
+		END CASE;
+	END PROCESS;
+\end{lstlisting}
+
+\indent Finalmente, se realiza la descripción del \textit{CLK}, y así se finaliza el diseño de la ALU.
+
+\begin{lstlisting}[language=VHDL]
+	PROCESS(nState,clk)
+	BEGIN
+		IF (clk'event AND clk = '0') THEN 
+			state <= nState;
+		END IF;
+	END PROCESS;
+END ARCHITECTURE;
+\end{lstlisting}
+
+\section{Resultados Obtenidos}
+\indent Se crean las modificaciones respectivas obteniendo así una ALU capaz de trabajar con 8 bits en sus entradas y salida.\\
+\indent Con el diseño del algoritmo de control se logra de manera bastante simplificada brindar y mostrar al usuario las diferentes opciones, facilitando la utilización de la ALU.\\
+\indent Con la implementación de una máquina de estados se generan los pasos necesarios para utilizar la ALU y al mismo tiempo dar indicadores adecuados de lo que está sucediendo en todo momento.\\
+\indent Se utiliza diseño estructural con la finalidad de simplificar el proceso de adaptar la ALU previamente descrita y modificada. Obteniendo la capacidad de controlarla de manera externa y permitiendo instanciar el mismo dispositivo múltiples ocaciones.\\
+\indent Con todo esto se logró una mejor organización en el funcionamiento de la ALU, así como una gran simplificación en la manera de implementar el sistema para facilidad de uso.\\
+
+\section{CONCEPTOS APRENDIDOS}
+\indent En este laboratorio se investigó y retomó el tema de diseño estructural, permitiendo de esta manera la implementación de la ALU de una manera muy simplificada.\\
+\indent Se encontraron nuevas maneras de manipular los bits en una entrada, salida o señal, dando oportunidad de simplificar algunas de las funciones previamente implementadas.\\
+\indent Se aprendió sobre nuevas maneras de generar interfaces en la placa de desarrollo Altera DE-1, ofreciendo así la posibilidad de dar al usuario una interfaz visual sobre el estado actual del dispositivo.\\
+
+\end{document}
