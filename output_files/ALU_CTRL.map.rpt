@@ -1,6 +1,6 @@
 Analysis & Synthesis report for ALU_CTRL
-Wed May 30 21:59:47 2018
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Wed Jun 20 11:05:32 2018
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -17,9 +17,10 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   9. User-Specified and Inferred Latches
  10. General Register Statistics
  11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "ALU:XALU"
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 12. Port Connectivity Checks: "RAM:XRAM"
+ 13. Port Connectivity Checks: "ALU:XALU"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -45,8 +46,8 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed May 30 21:59:47 2018           ;
-; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 20 11:05:32 2018           ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                        ;
 ; Top-level Entity Name              ; ALU_CTRL                                        ;
 ; Family                             ; Cyclone II                                      ;
@@ -166,6 +167,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; ROM.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ROM.vhd      ;         ;
 ; ALU_CTRL.vhd                     ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ALU_CTRL.vhd ;         ;
 ; ALU.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ALU.vhd      ;         ;
+; RAM.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/RAM.vhd      ;         ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
 
 
@@ -194,8 +196,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0       ;
 ; Maximum fan-out node                        ; opIn[1] ;
 ; Maximum fan-out                             ; 31      ;
-; Total fan-out                               ; 634     ;
-; Average fan-out                             ; 2.79    ;
+; Total fan-out                               ; 614     ;
+; Average fan-out                             ; 2.70    ;
 +---------------------------------------------+---------+
 
 
@@ -271,10 +273,10 @@ Encoding Type:  One-Hot
 ; IR[1]                                               ; CarryInput          ; yes                    ;
 ; IR[0]                                               ; CarryInput          ; yes                    ;
 ; ALU:XALU|preCo                                      ; ALU:XALU|Mux0       ; yes                    ;
-; nState.moveToRegisters_572                          ; RST                 ; yes                    ;
-; nState.progmemRead_578                              ; RST                 ; yes                    ;
 ; nState.resultToW_566                                ; RST                 ; yes                    ;
 ; IR[9]                                               ; CarryInput          ; yes                    ;
+; nState.moveToRegisters_572                          ; RST                 ; yes                    ;
+; nState.progmemRead_578                              ; RST                 ; yes                    ;
 ; IR[8]                                               ; CarryInput          ; yes                    ;
 ; IR[11]                                              ; CarryInput          ; yes                    ;
 ; IR[10]                                              ; CarryInput          ; yes                    ;
@@ -316,6 +318,15 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RAM:XRAM"                                                                               ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ALU:XALU"                                                                           ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -338,9 +349,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 64-Bit Analysis & Synthesis
+Info: Running Quartus II 32-bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed May 30 21:59:45 2018
+    Info: Processing started: Wed Jun 20 11:05:30 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_CTRL -c ALU_CTRL
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file ROM.vhd
@@ -352,91 +363,112 @@ Info (12021): Found 2 design units, including 1 entities, in source file ALU_CTR
 Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
     Info (12022): Found design unit 1: ALU-A_ALU
     Info (12023): Found entity 1: ALU
+Info (12021): Found 2 design units, including 1 entities, in source file RAM.vhd
+    Info (12022): Found design unit 1: RAM-aRAM
+    Info (12023): Found entity 1: RAM
 Info (12127): Elaborating entity "ALU_CTRL" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at ALU_CTRL.vhd(11): used explicit default value for signal "cState" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at ALU_CTRL.vhd(12): used explicit default value for signal "HEXOUT" because signal was never assigned a value
 Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(30): object "hexReg" assigned a value but never read
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(67): signal "dataReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(69): signal "CoBuffer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(72): signal "IR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(73): signal "IR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(74): signal "W" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(75): signal "S" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(77): signal "CoReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(80): signal "rValue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(82): signal "addrReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "W", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "addrReg", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "IR", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "nState", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "CarryInput", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "S", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regB", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regW", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "opIn", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "CoBuffer", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "CoBuffer" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "opIn[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "opIn[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "opIn[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "opIn[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "S[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "S[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "S[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "S[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "CarryInput" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "nState.resultToW" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "nState.moveToRegisters" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "nState.progmemRead" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[8]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[9]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[10]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[11]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "addrReg[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "addrReg[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "addrReg[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "addrReg[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[3]" at ALU_CTRL.vhd(58)
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(42): used implicit default value for signal "RWRR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(43): used implicit default value for signal "RADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(44): used implicit default value for signal "RDIR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(45): object "RDOR" assigned a value but never read
+Warning (10812): VHDL warning at ALU_CTRL.vhd(72): sensitivity list already contains CarryInput
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(83): signal "CoBuffer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(88): signal "W" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(89): signal "S" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(91): signal "CoReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(94): signal "rValue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(96): signal "addrReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "W", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "addrReg", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "IR", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "nState", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "CarryInput", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "S", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "regB", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "regW", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "opIn", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "CoBuffer", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "CoBuffer" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "opIn[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "opIn[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "opIn[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "opIn[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[4]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[5]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[6]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regW[7]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[4]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[5]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[6]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "regB[7]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "S[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "S[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "S[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "S[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "CarryInput" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "nState.resultToW" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "nState.moveToRegisters" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "nState.progmemRead" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[4]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[5]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[6]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[7]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[8]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[9]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[10]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "IR[11]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "addrReg[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "addrReg[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "addrReg[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "addrReg[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[3]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[4]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[5]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[6]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "W[7]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "PC[0]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "PC[1]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "PC[2]" at ALU_CTRL.vhd(72)
+Info (10041): Inferred latch for "PC[3]" at ALU_CTRL.vhd(72)
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:XALU"
 Warning (10631): VHDL Process Statement warning at ALU.vhd(24): inferring latch(es) for signal or variable "preR", which holds its previous value in one or more paths through the process
 Warning (10631): VHDL Process Statement warning at ALU.vhd(24): inferring latch(es) for signal or variable "preCo", which holds its previous value in one or more paths through the process
 Info (10041): Inferred latch for "preCo" at ALU.vhd(24)
 Info (10041): Inferred latch for "preR[8]" at ALU.vhd(24)
 Info (12128): Elaborating entity "ROM" for hierarchy "ROM:XROM"
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:XRAM"
+Warning (10492): VHDL Process Statement warning at RAM.vhd(26): signal "DATA_IN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at RAM.vhd(26): signal "ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at RAM.vhd(28): signal "microRAM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at RAM.vhd(28): signal "ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at RAM.vhd(23): inferring latch(es) for signal or variable "DATA_OUT", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "DATA_OUT[0]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[1]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[2]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[3]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[4]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[5]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[6]" at RAM.vhd(23)
+Info (10041): Inferred latch for "DATA_OUT[7]" at RAM.vhd(23)
 Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "IR[0]" merged with LATCH primitive "IR[1]"
     Info (13026): Duplicate LATCH primitive "regB[0]" merged with LATCH primitive "regB[1]"
@@ -445,25 +477,45 @@ Warning (13012): Latch ALU:XALU|preCo has unsafe behavior
 Warning (13012): Latch ALU:XALU|preR[8] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal opIn[2]
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEXOUT[5]" is stuck at VCC
-    Warning (13410): Pin "HEXOUT[8]" is stuck at VCC
+    Warning (13410): Pin "cState[0]" is stuck at GND
+    Warning (13410): Pin "cState[1]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[0]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[1]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[2]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[3]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[4]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[5]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[6]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[7]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[8]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[9]" is stuck at GND
     Warning (13410): Pin "HEXOUT[10]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[11]" is stuck at GND
     Warning (13410): Pin "HEXOUT[12]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[13]" is stuck at GND
     Warning (13410): Pin "HEXOUT[14]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[15]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[16]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[17]" is stuck at GND
     Warning (13410): Pin "HEXOUT[18]" is stuck at GND
     Warning (13410): Pin "HEXOUT[19]" is stuck at GND
     Warning (13410): Pin "HEXOUT[20]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[21]" is stuck at VCC
+    Warning (13410): Pin "HEXOUT[21]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[22]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[23]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[24]" is stuck at GND
     Warning (13410): Pin "HEXOUT[25]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[26]" is stuck at GND
+    Warning (13410): Pin "HEXOUT[27]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 226 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 40 output pins
     Info (21061): Implemented 184 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 632 megabytes
-    Info: Processing ended: Wed May 30 21:59:47 2018
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 68 warnings
+    Info: Peak virtual memory: 363 megabytes
+    Info: Processing ended: Wed Jun 20 11:05:32 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

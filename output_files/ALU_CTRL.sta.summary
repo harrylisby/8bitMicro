@@ -3,52 +3,52 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'state.resultToW'
-Slack : -7.343
-TNS   : -69.523
+Slack : -8.626
+TNS   : -79.995
 
 Type  : Slow Model Setup 'opIn[1]'
-Slack : -6.788
-TNS   : -11.344
+Slack : -8.289
+TNS   : -14.805
 
 Type  : Slow Model Setup 'RST'
-Slack : -2.548
-TNS   : -48.929
+Slack : -2.975
+TNS   : -44.796
 
 Type  : Slow Model Setup 'clk'
-Slack : 0.345
+Slack : 0.037
 TNS   : 0.000
 
 Type  : Slow Model Hold 'RST'
-Slack : -1.182
-TNS   : -11.557
-
-Type  : Slow Model Hold 'opIn[1]'
-Slack : -0.760
-TNS   : -0.760
+Slack : -2.597
+TNS   : -19.016
 
 Type  : Slow Model Hold 'state.resultToW'
-Slack : -0.545
-TNS   : -2.141
+Slack : -0.471
+TNS   : -1.125
+
+Type  : Slow Model Hold 'opIn[1]'
+Slack : -0.365
+TNS   : -0.365
 
 Type  : Slow Model Hold 'clk'
-Slack : 0.110
+Slack : 0.247
 TNS   : 0.000
 
 Type  : Slow Model Recovery 'state.resultToW'
-Slack : -0.855
-TNS   : -5.733
+Slack : -0.824
+TNS   : -3.759
 
 Type  : Slow Model Recovery 'clk'
-Slack : 0.248
+Slack : 0.255
 TNS   : 0.000
 
 Type  : Slow Model Removal 'state.resultToW'
-Slack : -0.405
-TNS   : -2.839
+Slack : -0.694
+TNS   : -7.319
 
 Type  : Slow Model Removal 'clk'
-Slack : 0.004
-TNS   : 0.000
+Slack : -0.003
+TNS   : -0.009
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -1.469
@@ -67,52 +67,52 @@ Slack : 0.500
 TNS   : 0.000
 
 Type  : Fast Model Setup 'opIn[1]'
-Slack : -2.943
-TNS   : -4.661
+Slack : -3.564
+TNS   : -6.130
 
 Type  : Fast Model Setup 'state.resultToW'
-Slack : -2.233
-TNS   : -19.836
+Slack : -2.745
+TNS   : -24.267
 
 Type  : Fast Model Setup 'RST'
-Slack : -0.816
-TNS   : -2.327
+Slack : -1.022
+TNS   : -3.101
 
 Type  : Fast Model Setup 'clk'
-Slack : 0.882
+Slack : 0.753
 TNS   : 0.000
 
 Type  : Fast Model Hold 'RST'
-Slack : -1.230
-TNS   : -7.984
+Slack : -1.806
+TNS   : -11.274
 
 Type  : Fast Model Hold 'state.resultToW'
-Slack : -0.779
-TNS   : -5.292
+Slack : -0.758
+TNS   : -4.669
 
 Type  : Fast Model Hold 'opIn[1]'
-Slack : -0.243
-TNS   : -0.243
+Slack : -0.086
+TNS   : -0.086
 
 Type  : Fast Model Hold 'clk'
-Slack : -0.118
-TNS   : -0.159
+Slack : -0.059
+TNS   : -0.059
 
 Type  : Fast Model Recovery 'state.resultToW'
-Slack : 0.353
+Slack : 0.342
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'clk'
-Slack : 0.380
+Slack : 0.386
 TNS   : 0.000
 
 Type  : Fast Model Removal 'state.resultToW'
-Slack : -0.471
-TNS   : -5.188
+Slack : -0.602
+TNS   : -6.627
 
 Type  : Fast Model Removal 'clk'
-Slack : 0.000
-TNS   : 0.000
+Slack : -0.007
+TNS   : -0.019
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -1.222
