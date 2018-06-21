@@ -2,6 +2,7 @@ library ieee;
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+--ali
 ENTITY ALU_CTRL IS
 	PORT(
 		clk: in	std_logic; --reloj maestro del sistema
