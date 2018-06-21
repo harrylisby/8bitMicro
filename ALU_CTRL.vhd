@@ -65,7 +65,7 @@ BEGIN
 	XRAM: ENTITY work.RAM PORT MAP(
 					WR => RWRR,
 					ADDR => RADDR,
-					DATA_IN => RDIR,
+					DATA_IN => RDIR,ww
 					DATA_OUT => RDOR
 	);
 
