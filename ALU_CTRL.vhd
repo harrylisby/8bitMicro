@@ -33,7 +33,7 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	SIGNAL W: std_logic_vector(7 downto 0);
 	SIGNAL regW: std_logic_vector(7 downto 0):="00000000";
 	SIGNAL PC: std_logic_vector(3 downto 0);
-	SIGNAL IR: std_logic_vector(11 downto 0):="000000000000";
+	SIGNAL IR: std_logic_vector(13 downto 0):="000000000000";
 	SIGNAL S: std_logic_vector(3 downto 0):="0000";
 	SIGNAL dB: std_logic_vector(7 downto 0):="00000000";
 	SIGNAL dataReg: std_logic_vector(11 downto 0):="000000000000";
@@ -69,7 +69,7 @@ BEGIN
 					DATA_OUT => RDOR
 	);
 
-	PROCESS(state,carryInput,RST,PC,IR,dataReg,carryInput)
+	PROCESS(state,carryInput,RST,PC,IR,dataReg,carryInput) --Revisar cuales deben estar realmente en sensibilidad
 	BEGIN
 		IF(rst='0') THEN
 				PC<="0000";
@@ -79,21 +79,59 @@ BEGIN
 				WHEN progmemRead =>
 					addrReg <= PC;		-- introduce a PC [addr:ROM] el valor del contador addrReg
 					IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
+					CarryInput <= CoBuffer;	--escribe valor del buffer Co a Ci
+					RWRR <= '1';
+					
 					nState <= moveToRegisters;
-					CarryInput <= CoBuffer;
 
 				WHEN moveToRegisters =>
 					S <= IR(11 downto 8);		--separa instrucción y guarda en S
-					regB <= IR(7 downto 0);		--separa byte e introduce el byte en regB [B:ALU]
+					--regB <= IR(7 downto 0);		--separa byte e introduce el byte en regB [B:ALU]
+
+					IF IR(13 downto 11)="11" THEN
+						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
+						
+					ELSIF IR(13 downto 11)="00" THEN
+						regB <= RDOR;	--escribe en regB la salida de la RAM
+						
+					ELSE
+						regB <= "00000000";	--en otros casos escribe cero en regB
+					END IF;
+					
 					regW <= W;						--mueve el valor de W a regW [A:ALU]
 					opIn <= S;						--introduce a opIn [Op:ALU] la instrucción
+					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
+					
+					--MOVER CoBuffer a resultToW (?)
+					RWRR <= '1';
+
 					nState <= resultToW;
-					CoBuffer <= CoReg;
 
 				WHEN resultToW =>
-					W <= rValue;					--mueve resultado, rValue [R:ALU] a W
+					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
+					
+					IF IR(13 downto 12)="11" THEN
+						W <= rValue;
+						RWRR <= '1';
+					ELSIF IR(13 downto 12)="00" THEN
+						IF IR(7)='0' THEN
+							W <= rValue;
+							RWRR <= '1';
+						ELSE
+							RWRR <= '0';
+						END IF;
+					ELSE
+						RWRR <= '1';
+					END IF;
+					
+						
+						
+					PC <= addrReg + '1';	--suma +1 a addrReg
+					
+					--agregar Z
+
 					nState <= progmemRead;
-					PC <= addrReg + '1';			--suma +1 a addrReg
+
 			END CASE;
 		END IF;
 	END PROCESS;

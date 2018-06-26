@@ -1,0 +1,4 @@
+.db/
+.ALU_CTRL.vhd.bak
+.RAM.vhd.bak
+.simulation

@@ -22,7 +22,7 @@ SIGNAL microRAM : ramArray; --Esta señal es un array que representa al type que
 BEGIN
 PROCESS(WR)
 	BEGIN
-		IF(WR = '1') THEN 
+		IF(WR = '0') THEN 
 			microRAM(conv_integer(ADDR)) <= DATA_IN;  --Si modo es write [wr=1], data in se escribeen addr
 		ELSE
 			DATA_OUT <= microRAM(conv_integer(ADDR)); --Si modo es read [wr=0], data out = word en addr
