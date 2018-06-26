@@ -33,10 +33,10 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	SIGNAL W: std_logic_vector(7 downto 0);
 	SIGNAL regW: std_logic_vector(7 downto 0):="00000000";
 	SIGNAL PC: std_logic_vector(3 downto 0);
-	SIGNAL IR: std_logic_vector(13 downto 0):="000000000000";
+	SIGNAL IR: std_logic_vector(13 downto 0):="00000000000000";
 	SIGNAL S: std_logic_vector(3 downto 0):="0000";
 	SIGNAL dB: std_logic_vector(7 downto 0):="00000000";
-	SIGNAL dataReg: std_logic_vector(11 downto 0):="000000000000";
+	SIGNAL dataReg: std_logic_vector(13 downto 0):="00000000000000";
 	SIGNAL addrReg: std_logic_vector(3 downto 0):="0000";
 --signals para RAM
 	SIGNAL RWRR: std_logic; --ram write/read register
@@ -65,7 +65,7 @@ BEGIN
 	XRAM: ENTITY work.RAM PORT MAP(
 					WR => RWRR,
 					ADDR => RADDR,
-					DATA_IN => RDIR,ww
+					DATA_IN => RDIR,
 					DATA_OUT => RDOR
 	);
 
