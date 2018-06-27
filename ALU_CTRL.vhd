@@ -54,6 +54,19 @@ BEGIN
 												dataout	=>	regdOUT
 												);
 	
+	ds:
+	PROCESS(estado)
+	BEGIN
+		CASE estado IS
+			WHEN progMemRead =>
+				currentState <= "01";
+			WHEN moveToRegisters =>
+				currentState <= "10";
+			WHEN resultToW =>
+				currentState <= "11";
+		END CASE;
+	END PROCESS ds;
+	
 	flipflop:
 	PROCESS(clk, prox_estado, rst)
 	BEGIN

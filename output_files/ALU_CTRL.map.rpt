@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU_CTRL
-Wed Jun 27 11:04:09 2018
+Wed Jun 27 11:17:25 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -46,7 +46,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 27 11:04:09 2018      ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 27 11:17:25 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                   ;
 ; Top-level Entity Name              ; ALU_CTRL                                   ;
@@ -223,9 +223,9 @@ Encoding Type:  One-Hot
 +---------------------------------------+--------------------+
 ; Register name                         ; Reason for Removal ;
 +---------------------------------------+--------------------+
+; estado.resultToW                      ; Lost fanout        ;
 ; estado.progMemRead                    ; Lost fanout        ;
 ; estado.moveToRegisters                ; Lost fanout        ;
-; estado.resultToW                      ; Lost fanout        ;
 ; Total Number of Removed Registers = 3 ;                    ;
 +---------------------------------------+--------------------+
 
@@ -290,7 +290,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Jun 27 11:04:07 2018
+    Info: Processing started: Wed Jun 27 11:17:23 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_CTRL -c ALU_CTRL
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
@@ -309,8 +309,6 @@ Info (12127): Elaborating entity "ALU_CTRL" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(8): used implicit default value for signal "valueOutput" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(9): used implicit default value for signal "carryOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(9): used implicit default value for signal "Zout" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(10): used implicit default value for signal "currentState" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(17): object "estado" assigned a value but never read
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(18): used implicit default value for signal "prox_estado" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(21): used implicit default value for signal "regA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(21): used implicit default value for signal "regB" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
@@ -341,7 +339,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "valueOutput[7]" is stuck at GND
     Warning (13410): Pin "carryOut" is stuck at GND
     Warning (13410): Pin "Zout" is stuck at GND
-    Warning (13410): Pin "currentState[0]" is stuck at GND
+    Warning (13410): Pin "currentState[0]" is stuck at VCC
     Warning (13410): Pin "currentState[1]" is stuck at GND
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -352,9 +350,9 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 14 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 12 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 37 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 35 warnings
     Info: Peak virtual memory: 4651 megabytes
-    Info: Processing ended: Wed Jun 27 11:04:09 2018
+    Info: Processing ended: Wed Jun 27 11:17:25 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
