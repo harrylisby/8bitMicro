@@ -3,68 +3,68 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'IR[7]'
-Slack : -8.031
-TNS   : -61.162
+Slack : -11.219
+TNS   : -78.882
 
 Type  : Slow Model Setup 'regOp[1]'
-Slack : -7.352
-TNS   : -7.352
+Slack : -9.164
+TNS   : -9.164
 
 Type  : Slow Model Setup 'rst'
-Slack : -6.802
-TNS   : -37.088
+Slack : -7.167
+TNS   : -36.281
 
 Type  : Slow Model Setup 'estado.moveToRegisters'
-Slack : -3.816
-TNS   : -34.817
+Slack : -5.374
+TNS   : -28.849
 
 Type  : Slow Model Setup 'clk'
-Slack : 0.305
+Slack : 0.054
 TNS   : 0.000
 
 Type  : Slow Model Hold 'rst'
-Slack : -2.593
-TNS   : -9.499
-
-Type  : Slow Model Hold 'IR[7]'
-Slack : -1.121
-TNS   : -4.650
-
-Type  : Slow Model Hold 'regOp[1]'
-Slack : -0.602
-TNS   : -0.602
-
-Type  : Slow Model Hold 'clk'
-Slack : -0.115
-TNS   : -0.115
+Slack : -3.184
+TNS   : -29.937
 
 Type  : Slow Model Hold 'estado.moveToRegisters'
-Slack : 0.480
+Slack : -0.613
+TNS   : -3.875
+
+Type  : Slow Model Hold 'IR[7]'
+Slack : -0.055
+TNS   : -0.095
+
+Type  : Slow Model Hold 'regOp[1]'
+Slack : -0.044
+TNS   : -0.044
+
+Type  : Slow Model Hold 'clk'
+Slack : 0.055
 TNS   : 0.000
 
 Type  : Slow Model Recovery 'IR[7]'
-Slack : -0.198
-TNS   : -0.198
-
-Type  : Slow Model Recovery 'clk'
-Slack : 0.259
-TNS   : 0.000
+Slack : -1.550
+TNS   : -5.415
 
 Type  : Slow Model Recovery 'estado.moveToRegisters'
-Slack : 0.744
+Slack : -0.061
+TNS   : -0.061
+
+Type  : Slow Model Recovery 'clk'
+Slack : 0.240
 TNS   : 0.000
 
 Type  : Slow Model Removal 'estado.moveToRegisters'
-Slack : -1.768
-TNS   : -6.453
+Slack : -1.135
+TNS   : -4.214
 
 Type  : Slow Model Removal 'IR[7]'
-Slack : -1.291
-TNS   : -8.430
+Slack : -0.526
+TNS   : -2.815
 
 Type  : Slow Model Removal 'clk'
-Slack : -0.007
-TNS   : -0.021
+Slack : 0.012
+TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'clk'
 Slack : -1.469
@@ -86,69 +86,69 @@ Type  : Slow Model Minimum Pulse Width 'regOp[1]'
 Slack : 0.500
 TNS   : 0.000
 
-Type  : Fast Model Setup 'regOp[1]'
-Slack : -3.106
-TNS   : -3.106
-
 Type  : Fast Model Setup 'IR[7]'
-Slack : -2.771
-TNS   : -21.036
+Slack : -4.065
+TNS   : -28.362
 
-Type  : Fast Model Setup 'rst'
-Slack : -1.754
-TNS   : -5.444
+Type  : Fast Model Setup 'regOp[1]'
+Slack : -3.849
+TNS   : -3.849
 
 Type  : Fast Model Setup 'estado.moveToRegisters'
-Slack : -1.460
-TNS   : -4.849
+Slack : -2.115
+TNS   : -7.442
+
+Type  : Fast Model Setup 'rst'
+Slack : -1.933
+TNS   : -7.001
 
 Type  : Fast Model Setup 'clk'
-Slack : 0.869
+Slack : 0.774
 TNS   : 0.000
 
 Type  : Fast Model Hold 'rst'
-Slack : -1.744
-TNS   : -5.708
+Slack : -1.974
+TNS   : -14.447
 
 Type  : Fast Model Hold 'IR[7]'
-Slack : -0.964
-TNS   : -6.145
-
-Type  : Fast Model Hold 'regOp[1]'
-Slack : -0.209
-TNS   : -0.209
+Slack : -0.557
+TNS   : -3.566
 
 Type  : Fast Model Hold 'clk'
-Slack : -0.189
-TNS   : -0.309
+Slack : -0.120
+TNS   : -0.239
 
 Type  : Fast Model Hold 'estado.moveToRegisters'
-Slack : 0.170
-TNS   : 0.000
+Slack : -0.067
+TNS   : -0.323
 
-Type  : Fast Model Recovery 'clk'
-Slack : 0.387
+Type  : Fast Model Hold 'regOp[1]'
+Slack : 0.034
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'IR[7]'
-Slack : 0.570
+Slack : 0.013
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clk'
+Slack : 0.379
 TNS   : 0.000
 
 Type  : Fast Model Recovery 'estado.moveToRegisters'
-Slack : 1.069
+Slack : 0.671
 TNS   : 0.000
 
 Type  : Fast Model Removal 'estado.moveToRegisters'
-Slack : -1.067
-TNS   : -4.109
+Slack : -0.788
+TNS   : -2.999
 
 Type  : Fast Model Removal 'IR[7]'
-Slack : -0.773
-TNS   : -5.491
+Slack : -0.472
+TNS   : -3.204
 
 Type  : Fast Model Removal 'clk'
-Slack : -0.007
-TNS   : -0.021
+Slack : 0.001
+TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'clk'
 Slack : -1.222

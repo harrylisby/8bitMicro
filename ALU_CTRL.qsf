@@ -58,18 +58,18 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
 set_location_assignment PIN_R22 -to clk
-set_location_assignment PIN_R17 -to cState[1]
-set_location_assignment PIN_R18 -to cState[0]
-set_location_assignment PIN_R19 -to carryOut
-set_location_assignment PIN_Y21 -to valueOutput[7]
-set_location_assignment PIN_Y22 -to valueOutput[6]
-set_location_assignment PIN_W21 -to valueOutput[5]
-set_location_assignment PIN_W22 -to valueOutput[4]
-set_location_assignment PIN_V21 -to valueOutput[3]
-set_location_assignment PIN_V22 -to valueOutput[2]
-set_location_assignment PIN_U21 -to valueOutput[1]
-set_location_assignment PIN_U22 -to valueOutput[0]
-set_location_assignment PIN_R20 -to Zout
-set_location_assignment PIN_R21 -to RST
+set_location_assignment PIN_R18 -to carryOut
+set_location_assignment PIN_U18 -to valueOutput[7]
+set_location_assignment PIN_Y18 -to valueOutput[6]
+set_location_assignment PIN_V19 -to valueOutput[5]
+set_location_assignment PIN_T18 -to valueOutput[4]
+set_location_assignment PIN_Y19 -to valueOutput[3]
+set_location_assignment PIN_U19 -to valueOutput[2]
+set_location_assignment PIN_R19 -to valueOutput[1]
+set_location_assignment PIN_R20 -to valueOutput[0]
+set_location_assignment PIN_Y21 -to Zout
 set_global_assignment -name VHDL_FILE RAM.vhd
+set_location_assignment PIN_U21 -to currentState[1]
+set_location_assignment PIN_U22 -to currentState[0]
+set_location_assignment PIN_R21 -to rst
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
