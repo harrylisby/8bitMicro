@@ -20,7 +20,7 @@ ARCHITECTURE arch_RAM OF RAM IS
 BEGIN
 	PROCESS(clock) IS
 	BEGIN
-		IF clock'event AND clock = '0' THEN
+		IF clock'event AND clock = '1' THEN
 			IF WE = '1' THEN
 				ram_s(to_integer(unsigned(addr))) <= datain;
 			END IF;

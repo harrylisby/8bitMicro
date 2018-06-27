@@ -53,6 +53,16 @@ BEGIN
 												datain	=>	regdIN,
 												dataout	=>	regdOUT
 												);
+	
+	flipflop:
+	PROCESS(clk, prox_estado, rst)
+	BEGIN
+		IF(rst = '0') THEN
+			estado <= progMemRead;
+		ELSIF(clk'event AND clk = '0') THEN
+			estado <= prox_estado;
+		END IF;
+	END PROCESS flipflop;
 END ARCHITECTURE;
 
 

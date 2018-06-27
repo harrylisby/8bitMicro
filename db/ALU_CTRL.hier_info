@@ -1,5 +1,6 @@
 |ALU_CTRL
 clk => ram:XRAM.clock
+clk => estado~1.DATAIN
 valueOutput[0] <= valueOutput[0].DB_MAX_OUTPUT_PORT_TYPE
 valueOutput[1] <= valueOutput[1].DB_MAX_OUTPUT_PORT_TYPE
 valueOutput[2] <= valueOutput[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -12,7 +13,7 @@ carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
 Zout <= Zout.DB_MAX_OUTPUT_PORT_TYPE
 currentState[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 currentState[1] <= currentState[1].DB_MAX_OUTPUT_PORT_TYPE
-rst => ~NO_FANOUT~
+rst => estado~3.DATAIN
 
 
 |ALU_CTRL|ALU_8:XALU
