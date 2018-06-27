@@ -28,7 +28,12 @@ SIGNAL regW, regdB: std_logic_vector(7 downto 0) := "00000000";
 SIGNAL regS, regAddress: std_logic_vector(3 downto 0) := "0000";
 SIGNAL PC: std_logic_vector(3 downto 0);
 SIGNAL IR, regData: std_logic_vector(11 downto 0) := "000000000000";
-	
+
+--RAM
+SIGNAL regWE: std_logic;
+SIGNAL regAddr: std_logic_vector(6 downto 0);
+SIGNAL regdIN, regdOUT: std_logic_vector(7 downto 0);
+
 BEGIN
 	XALU: ENTITY work.ALU_8 PORT MAP(A  => regA,
 												B  => regB,
@@ -42,6 +47,12 @@ BEGIN
 	XROM: ENTITY work.ROM PORT MAP(	address 	=> regAddress,
 												data 		=> regData);
 
+	XRAM: ENTITY work.RAM PORT MAP(	clock		=> clk,
+												WE			=>	regWE,
+												addr		=>	regAddr,
+												datain	=>	regdIN,
+												dataout	=>	regdOUT
+												);
 END ARCHITECTURE;
 
 
