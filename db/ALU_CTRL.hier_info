@@ -293,8 +293,8 @@ data[8] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 data[9] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 data[10] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 data[11] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
-data[12] <= <GND>
-data[13] <= <GND>
+data[12] <= <VCC>
+data[13] <= <VCC>
 
 
 |ALU_CTRL|RAM:XRAM
