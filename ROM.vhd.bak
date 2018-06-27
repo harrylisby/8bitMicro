@@ -4,16 +4,15 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 ENTITY ROM IS
-	PORT(	address : in std_logic_vector(3 downto 0);
-			data : out std_logic_vector(11 downto 0)
-			);
+  PORT( 	addr : in std_logic_vector(3 downto 0);
+         data : out std_logic_vector(11 downto 0) );
 END ENTITY ROM;
 
-ARCHITECTURE arch_ROM OF ROM IS
+ARCHITECTURE ROM_ARCH OF ROM IS
 BEGIN
-	PROCESS(address)
+	PROCESS(addr)
 	BEGIN
-		CASE address IS
+		CASE(addr) IS
 			WHEN "0000" => data <= "100100001111";
 			WHEN "0001" => data <= "110000001100";
 			WHEN "0010" => data <= "010111110000";
@@ -32,7 +31,7 @@ BEGIN
 			WHEN "1111" => data <= "000000000000";
 		END CASE;
 	END PROCESS;
-END ARCHITECTURE arch_ROM;
+END ARCHITECTURE;
 
 
 

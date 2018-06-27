@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU_CTRL
-Wed Jun 27 08:59:52 2018
+Wed Jun 27 09:27:12 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -14,9 +14,10 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "ALU_8:XALU"
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Port Connectivity Checks: "ROM:XROM"
+ 10. Port Connectivity Checks: "ALU_8:XALU"
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,7 +43,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 27 08:59:52 2018      ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 27 09:27:12 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                   ;
 ; Top-level Entity Name              ; ALU_CTRL                                   ;
@@ -160,6 +161,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                              ; Library ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
+; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/ROM.vhd      ;         ;
 ; ALU_CTRL.vhd                     ; yes             ; User VHDL File  ; C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/ALU_CTRL.vhd ;         ;
 ; ALU.vhd                          ; yes             ; User VHDL File  ; C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/ALU.vhd      ;         ;
 +----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------+---------+
@@ -215,6 +217,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ROM:XROM"                                                                              ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; address ; Input  ; Info     ; Stuck at GND                                                                        ;
+; data    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "ALU_8:XALU"                                                                         ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
@@ -241,11 +253,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Jun 27 08:59:50 2018
+    Info: Processing started: Wed Jun 27 09:27:09 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_CTRL -c ALU_CTRL
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
-    Info (12022): Found design unit 1: ROM-ROM_ARCH
+    Info (12022): Found design unit 1: ROM-arch_ROM
     Info (12023): Found entity 1: ROM
 Info (12021): Found 2 design units, including 1 entities, in source file alu_ctrl.vhd
     Info (12022): Found design unit 1: ALU_CTRL-archALU_CTRL
@@ -268,9 +280,12 @@ Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(22): used impli
 Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(23): object "regCo" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(23): object "regZo" assigned a value but never read
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(23): used implicit default value for signal "carryIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10540): VHDL Signal Declaration warning at ALU_CTRL.vhd(28): used explicit default value for signal "regAddress" because signal was never assigned a value
+Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(30): object "regData" assigned a value but never read
 Info (12128): Elaborating entity "ALU_8" for hierarchy "ALU_8:XALU"
 Warning (10631): VHDL Process Statement warning at ALU.vhd(20): inferring latch(es) for signal or variable "preR", which holds its previous value in one or more paths through the process
 Info (10041): Inferred latch for "preR[8]" at ALU.vhd(20)
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:XROM"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "valueOutput[0]" is stuck at GND
     Warning (13410): Pin "valueOutput[1]" is stuck at GND
@@ -292,10 +307,10 @@ Warning (21074): Design contains 2 input pin(s) that do not drive logic
 Info (21057): Implemented 14 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 12 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 4668 megabytes
-    Info: Processing ended: Wed Jun 27 08:59:52 2018
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 31 warnings
+    Info: Peak virtual memory: 4664 megabytes
+    Info: Processing ended: Wed Jun 27 09:27:12 2018
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -15,12 +15,19 @@ END ENTITY;
 ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 TYPE tipo_estado IS (progMemRead, moveToRegisters, resultToW);
 SIGNAL estado: tipo_estado := progMemRead;
-SIGNAL p_estado: tipo_estado;
+SIGNAL prox_estado: tipo_estado;
 
 --ALU
 SIGNAL regA, regB, regResult: std_logic_vector(7 downto 0);
 SIGNAL regOp: std_logic_vector(3 downto 0);
 SIGNAL regCo, regZo, carryIn: std_logic;
+
+--ROM
+SIGNAL W: std_logic_vector(7 downto 0);
+SIGNAL regW, regdB: std_logic_vector(7 downto 0) := "00000000";
+SIGNAL regS, regAddress: std_logic_vector(3 downto 0) := "0000";
+SIGNAL PC: std_logic_vector(3 downto 0);
+SIGNAL IR, regData: std_logic_vector(11 downto 0) := "000000000000";
 	
 BEGIN
 	XALU: ENTITY work.ALU_8 PORT MAP(A  => regA,
@@ -31,6 +38,9 @@ BEGIN
 												Zo => regZo,
 												R  => regResult
 												);
+	
+	XROM: ENTITY work.ROM PORT MAP(	address 	=> regAddress,
+												data 		=> regData);
 
 END ARCHITECTURE;
 
