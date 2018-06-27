@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "ALU_CTRL")
-  (DATE "06/27/2018 06:19:20")
+  (DATE "06/27/2018 09:00:05")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.0.0 Build 156 04/24/2013 SJ Web Edition")
@@ -33,7 +33,7 @@
 
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[0\]\~I\\.asynch_inst)
+    (INSTANCE \\valueOutput\[0\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH datain padio (2850:2850:2850) (2850:2850:2850))
@@ -42,25 +42,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[1\]\~I\\.asynch_inst)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH datain padio (2830:2830:2830) (2830:2830:2830))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[2\]\~I\\.asynch_inst)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH datain padio (3016:3016:3016) (3016:3016:3016))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[3\]\~I\\.asynch_inst)
+    (INSTANCE \\valueOutput\[1\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH datain padio (2850:2850:2850) (2850:2850:2850))
@@ -69,16 +51,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[4\]\~I\\.asynch_inst)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH datain padio (2996:2996:2996) (2996:2996:2996))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[5\]\~I\\.asynch_inst)
+    (INSTANCE \\valueOutput\[2\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH datain padio (2850:2850:2850) (2850:2850:2850))
@@ -87,16 +60,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[6\]\~I\\.asynch_inst)
-    (DELAY
-      (ABSOLUTE
-        (IOPATH datain padio (2986:2986:2986) (2986:2986:2986))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\result\[7\]\~I\\.asynch_inst)
+    (INSTANCE \\valueOutput\[3\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH datain padio (2850:2850:2850) (2850:2850:2850))
@@ -105,10 +69,37 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\Zout\~I\\.asynch_inst)
+    (INSTANCE \\valueOutput\[4\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (IOPATH datain padio (2840:2840:2840) (2840:2840:2840))
+        (IOPATH datain padio (2860:2860:2860) (2860:2860:2860))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\valueOutput\[5\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datain padio (2860:2860:2860) (2860:2860:2860))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\valueOutput\[6\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datain padio (2870:2870:2870) (2870:2870:2870))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\valueOutput\[7\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datain padio (2870:2870:2870) (2870:2870:2870))
       )
     )
   )
@@ -123,7 +114,7 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
-    (INSTANCE \\currentState\[0\]\~I\\.asynch_inst)
+    (INSTANCE \\Zout\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
         (IOPATH datain padio (2840:2840:2840) (2840:2840:2840))
@@ -132,10 +123,19 @@
   )
   (CELL
     (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\currentState\[0\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datain padio (3016:3016:3016) (3016:3016:3016))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_asynch_io")
     (INSTANCE \\currentState\[1\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (IOPATH datain padio (2840:2840:2840) (2840:2840:2840))
+        (IOPATH datain padio (2820:2820:2820) (2820:2820:2820))
       )
     )
   )

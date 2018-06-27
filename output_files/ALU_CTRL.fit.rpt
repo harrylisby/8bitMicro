@@ -1,5 +1,5 @@
 Fitter report for ALU_CTRL
-Wed Jun 27 06:19:13 2018
+Wed Jun 27 08:59:58 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -55,7 +55,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +------------------------------------+--------------------------------------------+
-; Fitter Status                      ; Successful - Wed Jun 27 06:19:13 2018      ;
+; Fitter Status                      ; Successful - Wed Jun 27 08:59:58 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                   ;
 ; Top-level Entity Name              ; ALU_CTRL                                   ;
@@ -66,7 +66,7 @@ applicable agreement for further details.
 ;     Total combinational functions  ; 0 / 18,752 ( 0 % )                         ;
 ;     Dedicated logic registers      ; 0 / 18,752 ( 0 % )                         ;
 ; Total registers                    ; 0                                          ;
-; Total pins                         ; 22 / 315 ( 7 % )                           ;
+; Total pins                         ; 14 / 315 ( 4 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                        ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                             ;
@@ -136,23 +136,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------+
-; Ignored Assignments                                                                        ;
-+----------+----------------+--------------+----------------+---------------+----------------+
-; Name     ; Ignored Entity ; Ignored From ; Ignored To     ; Ignored Value ; Ignored Source ;
-+----------+----------------+--------------+----------------+---------------+----------------+
-; Location ;                ;              ; RST            ; PIN_R21       ; QSF Assignment ;
-; Location ;                ;              ; cState[0]      ; PIN_R18       ; QSF Assignment ;
-; Location ;                ;              ; cState[1]      ; PIN_R17       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[0] ; PIN_U22       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[1] ; PIN_U21       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[2] ; PIN_V22       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[3] ; PIN_V21       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[4] ; PIN_W22       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[5] ; PIN_W21       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[6] ; PIN_Y22       ; QSF Assignment ;
-; Location ;                ;              ; valueOutput[7] ; PIN_Y21       ; QSF Assignment ;
-+----------+----------------+--------------+----------------+---------------+----------------+
++----------------------------------------------------------------------------------------+
+; Ignored Assignments                                                                    ;
++----------+----------------+--------------+------------+---------------+----------------+
+; Name     ; Ignored Entity ; Ignored From ; Ignored To ; Ignored Value ; Ignored Source ;
++----------+----------------+--------------+------------+---------------+----------------+
+; Location ;                ;              ; cState[0]  ; PIN_R18       ; QSF Assignment ;
+; Location ;                ;              ; cState[1]  ; PIN_R17       ; QSF Assignment ;
++----------+----------------+--------------+------------+---------------+----------------+
 
 
 +----------------------------------------------+
@@ -161,8 +152,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                ; Value                  ;
 +---------------------+------------------------+
 ; Placement (by node) ;                        ;
-;     -- Requested    ; 0 / 26 ( 0.00 % )      ;
-;     -- Achieved     ; 0 / 26 ( 0.00 % )      ;
+;     -- Requested    ; 0 / 18 ( 0.00 % )      ;
+;     -- Achieved     ; 0 / 18 ( 0.00 % )      ;
 ;                     ;                        ;
 ; Routing (by net)    ;                        ;
 ;     -- Requested    ; 0 / 0 ( 0.00 % )       ;
@@ -185,7 +176,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name                 ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
-; Top                            ; 23      ; 0                 ; N/A                     ; Source File       ;
+; Top                            ; 15      ; 0                 ; N/A                     ; Source File       ;
 ; hard_block:auto_generated_inst ; 3       ; 0                 ; N/A                     ; Source File       ;
 +--------------------------------+---------+-------------------+-------------------------+-------------------+
 
@@ -193,7 +184,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/8bitMicro-Allison/output_files/ALU_CTRL.pin.
+The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/output_files/ALU_CTRL.pin.
 
 
 +-------------------------------------------------------------------+
@@ -222,7 +213,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ;                                             ;                     ;
 ; Total LABs:  partially or completely used   ; 0 / 1,172 ( 0 % )   ;
 ; Virtual pins                                ; 0                   ;
-; I/O pins                                    ; 22 / 315 ( 7 % )    ;
+; I/O pins                                    ; 14 / 315 ( 4 % )    ;
 ;     -- Clock pins                           ; 0 / 8 ( 0 % )       ;
 ;                                             ;                     ;
 ; Global signals                              ; 0                   ;
@@ -270,7 +261,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; Total LABs:  partially or completely used   ; 0 / 1172 ( 0 % )  ; 0 / 1172 ( 0 % )               ;
 ;                                             ;                   ;                                ;
 ; Virtual pins                                ; 0                 ; 0                              ;
-; I/O pins                                    ; 22                ; 0                              ;
+; I/O pins                                    ; 14                ; 0                              ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 52 ( 0 % )    ; 0 / 52 ( 0 % )                 ;
 ; Total memory bits                           ; 0                 ; 0                              ;
 ; Total RAM block bits                        ; 0                 ; 0                              ;
@@ -290,7 +281,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ;     -- hard_block:auto_generated_inst       ; 0                 ; 0                              ;
 ;                                             ;                   ;                                ;
 ; Partition Interface                         ;                   ;                                ;
-;     -- Input Ports                          ; 10                ; 0                              ;
+;     -- Input Ports                          ; 2                 ; 0                              ;
 ;     -- Output Ports                         ; 12                ; 0                              ;
 ;     -- Bidir Ports                          ; 0                 ; 0                              ;
 ;                                             ;                   ;                                ;
@@ -310,22 +301,14 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 +---------------------------------------------+-------------------+--------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Input Pins                                                                                                                                                                                                                                                          ;
-+---------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; Name          ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
-+---------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; carryIn       ; E4    ; 2        ; 0            ; 24           ; 3           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; clk           ; R22   ; 6        ; 50           ; 10           ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
-; valueInput[0] ; AB19  ; 7        ; 48           ; 0            ; 3           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[1] ; Y22   ; 6        ; 50           ; 6            ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[2] ; R6    ; 1        ; 0            ; 7            ; 3           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[3] ; G5    ; 2        ; 0            ; 22           ; 0           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[4] ; A7    ; 3        ; 11           ; 27           ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[5] ; E7    ; 3        ; 5            ; 27           ; 0           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[6] ; AA7   ; 8        ; 11           ; 0            ; 2           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; valueInput[7] ; T6    ; 1        ; 0            ; 5            ; 0           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-+---------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Input Pins                                                                                                                                                                                                                                                 ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; Name ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
+; clk  ; R22   ; 6        ; 50           ; 10           ; 1           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
+; rst  ; R21   ; 6        ; 50           ; 10           ; 2           ; 0                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; User                 ;
++------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -335,33 +318,33 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Zout            ; R20   ; 6        ; 50           ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 ; carryOut        ; R19   ; 6        ; 50           ; 8            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
-; currentState[0] ; E3    ; 2        ; 0            ; 24           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; currentState[1] ; H1    ; 2        ; 0            ; 19           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[0]       ; F21   ; 5        ; 50           ; 20           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[1]       ; P3    ; 1        ; 0            ; 10           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[2]       ; AA16  ; 7        ; 35           ; 0            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[3]       ; E2    ; 2        ; 0            ; 20           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[4]       ; G11   ; 3        ; 20           ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[5]       ; F1    ; 2        ; 0            ; 20           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[6]       ; C9    ; 3        ; 9            ; 27           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; result[7]       ; F2    ; 2        ; 0            ; 20           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; currentState[0] ; B19   ; 4        ; 46           ; 27           ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; currentState[1] ; H6    ; 2        ; 0            ; 21           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; valueOutput[0]  ; U22   ; 6        ; 50           ; 7            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[1]  ; U21   ; 6        ; 50           ; 7            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[2]  ; V22   ; 6        ; 50           ; 7            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[3]  ; V21   ; 6        ; 50           ; 6            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[4]  ; W22   ; 6        ; 50           ; 5            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[5]  ; W21   ; 6        ; 50           ; 4            ; 0           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[6]  ; Y22   ; 6        ; 50           ; 6            ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
+; valueOutput[7]  ; Y21   ; 6        ; 50           ; 6            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; User                 ; 0 pF ; -                    ; -                   ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
-+-----------------------------------------------------------+
-; I/O Bank Usage                                            ;
-+----------+-----------------+---------------+--------------+
-; I/O Bank ; Usage           ; VCCIO Voltage ; VREF Voltage ;
-+----------+-----------------+---------------+--------------+
-; 1        ; 3 / 41 ( 7 % )  ; 3.3V          ; --           ;
-; 2        ; 9 / 33 ( 27 % ) ; 3.3V          ; --           ;
-; 3        ; 4 / 43 ( 9 % )  ; 3.3V          ; --           ;
-; 4        ; 0 / 40 ( 0 % )  ; 3.3V          ; --           ;
-; 5        ; 1 / 39 ( 3 % )  ; 3.3V          ; --           ;
-; 6        ; 5 / 36 ( 14 % ) ; 3.3V          ; --           ;
-; 7        ; 2 / 40 ( 5 % )  ; 3.3V          ; --           ;
-; 8        ; 1 / 43 ( 2 % )  ; 3.3V          ; --           ;
-+----------+-----------------+---------------+--------------+
++------------------------------------------------------------+
+; I/O Bank Usage                                             ;
++----------+------------------+---------------+--------------+
+; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
++----------+------------------+---------------+--------------+
+; 1        ; 0 / 41 ( 0 % )   ; 3.3V          ; --           ;
+; 2        ; 3 / 33 ( 9 % )   ; 3.3V          ; --           ;
+; 3        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
+; 4        ; 1 / 40 ( 3 % )   ; 3.3V          ; --           ;
+; 5        ; 0 / 39 ( 0 % )   ; 3.3V          ; --           ;
+; 6        ; 13 / 36 ( 36 % ) ; 3.3V          ; --           ;
+; 7        ; 0 / 40 ( 0 % )   ; 3.3V          ; --           ;
+; 8        ; 0 / 43 ( 0 % )   ; 3.3V          ; --           ;
++----------+------------------+---------------+--------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -375,7 +358,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; A4       ; 324        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A5       ; 322        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A6       ; 320        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A7       ; 306        ; 3        ; valueInput[4]                            ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; A7       ; 306        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A8       ; 304        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A9       ; 298        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A10      ; 293        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -397,7 +380,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; AA4      ; 85         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA5      ; 89         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA6      ; 97         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AA7      ; 103        ; 8        ; valueInput[6]                            ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA7      ; 103        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA8      ; 111        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA9      ; 114        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA10     ; 120        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -406,7 +389,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; AA13     ; 130        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA14     ; 136        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA15     ; 138        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AA16     ; 140        ; 7        ; result[2]                                ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AA16     ; 140        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA17     ; 144        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA18     ; 153        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA19     ; 162        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -431,7 +414,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; AB16     ; 139        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB17     ; 143        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB18     ; 152        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AB19     ; 161        ; 7        ; valueInput[0]                            ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AB19     ; 161        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB20     ; 163        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AB21     ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AB22     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -453,7 +436,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; B16      ; 270        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B17      ; 264        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B18      ; 250        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B19      ; 248        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; B19      ; 248        ; 4        ; currentState[0]                          ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B20      ; 246        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B21      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B22      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -465,7 +448,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; C6       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; C7       ; 315        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; C8       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; C9       ; 310        ; 3        ; result[6]                                ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; C9       ; 310        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C10      ; 296        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; C11      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; C12      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -502,12 +485,12 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; D21      ; 229        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D22      ; 230        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E1       ; 20         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; E2       ; 21         ; 2        ; result[3]                                ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E3       ; 6          ; 2        ; currentState[0]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; E4       ; 7          ; 2        ; carryIn                                  ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E2       ; 21         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; E3       ; 6          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; E4       ; 7          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E5       ;            ;          ; VCCD_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; E6       ;            ;          ; VCCA_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; E7       ; 316        ; 3        ; valueInput[5]                            ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; E7       ; 316        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E8       ; 308        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E9       ; 301        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E10      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -523,8 +506,8 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; E20      ; 234        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E21      ; 227        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E22      ; 228        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F1       ; 22         ; 2        ; result[5]                                ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F2       ; 23         ; 2        ; result[7]                                ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F1       ; 22         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; F2       ; 23         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F3       ; 13         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F4       ; 10         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; F5       ;            ;          ; GND_PLL3                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -543,19 +526,19 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; F18      ;            ;          ; GND_PLL2                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; F19      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; F20      ; 235        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F21      ; 223        ; 5        ; result[0]                                ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F21      ; 223        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F22      ; 224        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G1       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; G2       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; G3       ; 16         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G4       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G5       ; 12         ; 2        ; valueInput[3]                            ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G5       ; 12         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G6       ; 11         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G7       ; 317        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G8       ; 313        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G9       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; G10      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; G11      ; 291        ; 3        ; result[4]                                ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; G11      ; 291        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G12      ; 277        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G14      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -567,12 +550,12 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; G20      ; 233        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; G21      ; 221        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G22      ; 222        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H1       ; 24         ; 2        ; currentState[1]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; H1       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H2       ; 25         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H3       ; 27         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; H4       ; 17         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; H5       ; 18         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; H6       ; 19         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; H6       ; 19         ; 2        ; currentState[1]                          ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; H7       ; 318        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H8       ; 314        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; H9       ; 300        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -701,7 +684,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; N22      ; 200        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P1       ; 47         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P2       ; 48         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; P3       ; 50         ; 1        ; result[1]                                ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; P3       ; 50         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
 ; P4       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; P5       ; 55         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; P6       ; 56         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -726,7 +709,7 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; R3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; R4       ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; R5       ; 63         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; R6       ; 64         ; 1        ; valueInput[2]                            ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; R6       ; 64         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R7       ; 54         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R8       ; 53         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R9       ; 109        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -741,14 +724,14 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; R18      ; 184        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; R19      ; 185        ; 6        ; carryOut                                 ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R20      ; 192        ; 6        ; Zout                                     ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
-; R21      ; 190        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; R21      ; 190        ; 6        ; rst                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; R22      ; 191        ; 6        ; clk                                      ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; T1       ; 59         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T2       ; 60         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T3       ; 69         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T4       ;            ; 1        ; VCCIO1                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; T5       ; 67         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; T6       ; 68         ; 1        ; valueInput[7]                            ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; T6       ; 68         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; T7       ; 91         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T8       ; 90         ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; T9       ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -785,8 +768,8 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; U18      ; 170        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U19      ; 172        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U20      ; 176        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; --       ; --           ;
-; U21      ; 182        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; U22      ; 183        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; U21      ; 182        ; 6        ; valueOutput[1]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; U22      ; 183        ; 6        ; valueOutput[0]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; V1       ; 65         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V2       ; 66         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V3       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -807,8 +790,8 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; V18      ;            ;          ; GND_PLL4                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; V19      ; 166        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; V20      ; 173        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V21      ; 180        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; V22      ; 181        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; V21      ; 180        ; 6        ; valueOutput[3]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; V22      ; 181        ; 6        ; valueOutput[2]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; W1       ; 71         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W2       ; 72         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; W3       ; 75         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -829,8 +812,8 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; W18      ;            ;          ; NC                                       ;        ;              ;         ; --         ;                 ; --       ; --           ;
 ; W19      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W20      ; 167        ; 6        ; ~LVDS91p/nCEO~                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; W21      ; 174        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; W22      ; 175        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; W21      ; 174        ; 6        ; valueOutput[5]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; W22      ; 175        ; 6        ; valueOutput[4]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 ; Y1       ; 73         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y2       ; 74         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y3       ; 77         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -851,8 +834,8 @@ The pin-out file can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Com
 ; Y18      ; 165        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y19      ; 168        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; Y20      ; 169        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; Y21      ; 178        ; 6        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; Y22      ; 179        ; 6        ; valueInput[1]                            ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; Y21      ; 178        ; 6        ; valueOutput[7]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
+; Y22      ; 179        ; 6        ; valueOutput[6]                           ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; Y               ; no       ; Off          ;
 +----------+------------+----------+------------------------------------------+--------+--------------+---------+------------+-----------------+----------+--------------+
 Note: Pin directions (input, output or bidir) are based on device operating in user mode.
 
@@ -899,7 +882,7 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
-; |ALU_CTRL                  ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 22   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |ALU_CTRL           ;              ;
+; |ALU_CTRL                  ; 0 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 14   ; 0            ; 0 (0)        ; 0 (0)             ; 0 (0)            ; |ALU_CTRL           ;              ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -910,27 +893,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name            ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+
 ; clk             ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; carryIn         ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; valueInput[0]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; valueInput[1]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; valueInput[2]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; valueInput[3]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; valueInput[4]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; valueInput[5]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; valueInput[6]   ; Input    ; (0) 170 ps    ; (0) 170 ps    ; --                    ; --  ;
-; valueInput[7]   ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
-; result[0]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[1]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[2]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[3]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[4]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[5]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[6]       ; Output   ; --            ; --            ; --                    ; --  ;
-; result[7]       ; Output   ; --            ; --            ; --                    ; --  ;
-; Zout            ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[0]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[1]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[2]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[3]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[4]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[5]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[6]  ; Output   ; --            ; --            ; --                    ; --  ;
+; valueOutput[7]  ; Output   ; --            ; --            ; --                    ; --  ;
 ; carryOut        ; Output   ; --            ; --            ; --                    ; --  ;
+; Zout            ; Output   ; --            ; --            ; --                    ; --  ;
 ; currentState[0] ; Output   ; --            ; --            ; --                    ; --  ;
 ; currentState[1] ; Output   ; --            ; --            ; --                    ; --  ;
+; rst             ; Input    ; (0) 171 ps    ; (0) 171 ps    ; --                    ; --  ;
 +-----------------+----------+---------------+---------------+-----------------------+-----+
 
 
@@ -940,15 +915,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout ; Pad To Core Index ; Setting ;
 +---------------------+-------------------+---------+
 ; clk                 ;                   ;         ;
-; carryIn             ;                   ;         ;
-; valueInput[0]       ;                   ;         ;
-; valueInput[1]       ;                   ;         ;
-; valueInput[2]       ;                   ;         ;
-; valueInput[3]       ;                   ;         ;
-; valueInput[4]       ;                   ;         ;
-; valueInput[5]       ;                   ;         ;
-; valueInput[6]       ;                   ;         ;
-; valueInput[7]       ;                   ;         ;
+; rst                 ;                   ;         ;
 +---------------------+-------------------+---------+
 
 
@@ -1013,24 +980,7 @@ Info (169124): Fitter converted 3 user pins into dedicated programming pins
     Info (169125): Pin ~ASDO~ is reserved at location C4
     Info (169125): Pin ~nCSO~ is reserved at location C3
     Info (169125): Pin ~LVDS91p/nCEO~ is reserved at location W20
-Critical Warning (169085): No exact pin location assignment(s) for 19 pins of 22 total pins
-    Info (169086): Pin carryIn not assigned to an exact location on the device
-    Info (169086): Pin valueInput[0] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[1] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[2] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[3] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[4] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[5] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[6] not assigned to an exact location on the device
-    Info (169086): Pin valueInput[7] not assigned to an exact location on the device
-    Info (169086): Pin result[0] not assigned to an exact location on the device
-    Info (169086): Pin result[1] not assigned to an exact location on the device
-    Info (169086): Pin result[2] not assigned to an exact location on the device
-    Info (169086): Pin result[3] not assigned to an exact location on the device
-    Info (169086): Pin result[4] not assigned to an exact location on the device
-    Info (169086): Pin result[5] not assigned to an exact location on the device
-    Info (169086): Pin result[6] not assigned to an exact location on the device
-    Info (169086): Pin result[7] not assigned to an exact location on the device
+Critical Warning (169085): No exact pin location assignment(s) for 2 pins of 14 total pins
     Info (169086): Pin currentState[0] not assigned to an exact location on the device
     Info (169086): Pin currentState[1] not assigned to an exact location on the device
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'ALU_CTRL.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -1042,7 +992,7 @@ Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
 Info (176214): Statistics of I/O pins that need to be placed that use the same VCCIO and VREF, before I/O pin placement
-    Info (176211): Number of I/O pins in group: 19 (unused VREF, 3.3V VCCIO, 9 input, 10 output, 0 bidirectional)
+    Info (176211): Number of I/O pins in group: 2 (unused VREF, 3.3V VCCIO, 0 input, 2 output, 0 bidirectional)
         Info (176212): I/O standards used: 3.3-V LVTTL.
 Info (176215): I/O bank details before I/O pin placement
     Info (176214): Statistics of I/O banks
@@ -1051,22 +1001,13 @@ Info (176215): I/O bank details before I/O pin placement
         Info (176213): I/O bank number 3 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  43 pins available
         Info (176213): I/O bank number 4 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  40 pins available
         Info (176213): I/O bank number 5 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  39 pins available
-        Info (176213): I/O bank number 6 does not use VREF pins and has 3.3V VCCIO pins. 4 total pin(s) used --  32 pins available
+        Info (176213): I/O bank number 6 does not use VREF pins and has 3.3V VCCIO pins. 13 total pin(s) used --  23 pins available
         Info (176213): I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  40 pins available
         Info (176213): I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  43 pins available
 Warning (15705): Ignored locations or region assignments to the following nodes
-    Warning (15706): Node "RST" is assigned to location or region, but does not exist in design
     Warning (15706): Node "cState[0]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "cState[1]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[0]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[1]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[2]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[3]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[4]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[5]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[6]" is assigned to location or region, but does not exist in design
-    Warning (15706): Node "valueOutput[7]" is assigned to location or region, but does not exist in design
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:01
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:00
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
@@ -1079,38 +1020,38 @@ Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.03 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.02 seconds.
 Info (306004): Started post-fitting delay annotation
 Warning (306006): Found 12 output pins without output pin load capacitance assignment
-    Info (306007): Pin "result[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "result[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info (306007): Pin "Zout" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "valueOutput[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "carryOut" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info (306007): Pin "Zout" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "currentState[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info (306007): Pin "currentState[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info (306005): Delay annotation completed successfully
 Info (306004): Started post-fitting delay annotation
 Info (306005): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info (144001): Generated suppressed messages file C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/8bitMicro-Allison/output_files/ALU_CTRL.fit.smsg
-Info: Quartus II 64-Bit Fitter was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4880 megabytes
-    Info: Processing ended: Wed Jun 27 06:19:13 2018
-    Info: Elapsed time: 00:00:07
+Info (144001): Generated suppressed messages file C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/output_files/ALU_CTRL.fit.smsg
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 4890 megabytes
+    Info: Processing ended: Wed Jun 27 08:59:58 2018
+    Info: Elapsed time: 00:00:05
     Info: Total CPU time (on all processors): 00:00:06
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/8bitMicro-Allison/output_files/ALU_CTRL.fit.smsg.
+The suppressed messages can be found in C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/Rep_Arqui/8bitMicro/output_files/ALU_CTRL.fit.smsg.
 
 

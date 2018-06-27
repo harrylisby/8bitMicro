@@ -1,26 +1,18 @@
 |ALU_CTRL
 clk => ~NO_FANOUT~
-carryIn => alu_8:XALU.Ci
-valueInput[0] => ~NO_FANOUT~
-valueInput[1] => ~NO_FANOUT~
-valueInput[2] => ~NO_FANOUT~
-valueInput[3] => ~NO_FANOUT~
-valueInput[4] => ~NO_FANOUT~
-valueInput[5] => ~NO_FANOUT~
-valueInput[6] => ~NO_FANOUT~
-valueInput[7] => ~NO_FANOUT~
-result[0] <= result[0].DB_MAX_OUTPUT_PORT_TYPE
-result[1] <= result[1].DB_MAX_OUTPUT_PORT_TYPE
-result[2] <= result[2].DB_MAX_OUTPUT_PORT_TYPE
-result[3] <= result[3].DB_MAX_OUTPUT_PORT_TYPE
-result[4] <= result[4].DB_MAX_OUTPUT_PORT_TYPE
-result[5] <= result[5].DB_MAX_OUTPUT_PORT_TYPE
-result[6] <= result[6].DB_MAX_OUTPUT_PORT_TYPE
-result[7] <= result[7].DB_MAX_OUTPUT_PORT_TYPE
-Zout <= Zout.DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[0] <= valueOutput[0].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[1] <= valueOutput[1].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[2] <= valueOutput[2].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[3] <= valueOutput[3].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[4] <= valueOutput[4].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[5] <= valueOutput[5].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[6] <= valueOutput[6].DB_MAX_OUTPUT_PORT_TYPE
+valueOutput[7] <= valueOutput[7].DB_MAX_OUTPUT_PORT_TYPE
 carryOut <= carryOut.DB_MAX_OUTPUT_PORT_TYPE
+Zout <= Zout.DB_MAX_OUTPUT_PORT_TYPE
 currentState[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
 currentState[1] <= currentState[1].DB_MAX_OUTPUT_PORT_TYPE
+rst => ~NO_FANOUT~
 
 
 |ALU_CTRL|ALU_8:XALU
