@@ -18,16 +18,18 @@ SIGNAL estado: tipo_estado := progMemRead;
 SIGNAL prox_estado: tipo_estado;
 
 --ALU
-SIGNAL regA, regB, regResult: std_logic_vector(7 downto 0);
+SIGNAL regB, regResult: std_logic_vector(7 downto 0);
 SIGNAL regOp: std_logic_vector(3 downto 0);
 SIGNAL regCo, regZo, carryIn: std_logic;
+SIGNAL CoBuffer: std_logic := '0';
 
 --ROM
 SIGNAL W: std_logic_vector(7 downto 0);
 SIGNAL regW, regdB: std_logic_vector(7 downto 0) := "00000000";
 SIGNAL regS, regAddress: std_logic_vector(3 downto 0) := "0000";
 SIGNAL PC: std_logic_vector(3 downto 0);
-SIGNAL IR, regData: std_logic_vector(11 downto 0) := "000000000000";
+SIGNAL IR: std_logic_vector(13 downto 0) := "00000000000000";
+SIGNAL regData: std_logic_vector(13 downto 0) := "00000000000000";
 
 --RAM
 SIGNAL regWE: std_logic;
@@ -35,7 +37,7 @@ SIGNAL regAddr: std_logic_vector(6 downto 0);
 SIGNAL regdIN, regdOUT: std_logic_vector(7 downto 0);
 
 BEGIN
-	XALU: ENTITY work.ALU_8 PORT MAP(A  => regA,
+	XALU: ENTITY work.ALU_8 PORT MAP(A  => regW,
 												B  => regB,
 												Op => regOp,
 												Ci => carryIn,
@@ -53,6 +55,61 @@ BEGIN
 												datain	=>	regdIN,
 												dataout	=>	regdOUT
 												);
+	
+	dpe:
+	PROCESS(estado, carryIn, rst, PC, IR, regData)
+	BEGIN
+		IF(rst = '0') THEN
+			PC <= "0000";
+			W <= "00000000";
+		ELSE
+			CASE(estado) IS
+				WHEN progMemRead =>
+				
+					regAddress <= PC;
+					IR <= regData;
+					carryIn <= CoBuffer;
+					regWE <= '1'; --para que no escriba
+					prox_estado <= moveToRegisters;
+					
+				WHEN moveToRegisters =>
+				
+					regS <= IR(11 downto 8);
+						IF IR(13 downto 12) = "11" THEN
+							regB <= IR(7 downto 0);
+						ELSIF IR(13 downto 12) = "00" THEN
+							regB <= regdOUT;
+						ELSE
+							regB <= "00000000";
+						END IF;
+					regW <= W;
+					regOp <= regS;
+					PC <= regAddress + '1';
+					regWE <= '1';
+					prox_estado <= resultToW;
+					
+				WHEN resultToW =>
+					
+					IF IR(13 downto 12) = "11" THEN
+						W <= regResult;
+						regWE <= '1';
+					ELSIF IR(13 downto 12) = "00" THEN
+						IF IR(7) = '0' THEN
+							W <= regResult;
+							regWE <= '1';
+						ELSE
+							regWE <= '0';
+						END IF;
+					ELSE
+						regWE <= '1';
+					END IF;
+					CoBuffer <= regCo;
+					Zout <= regZo;
+					prox_estado <= progMemRead;
+					
+			END CASE;
+		END IF;
+	END PROCESS dpe;
 	
 	ds:
 	PROCESS(estado)
