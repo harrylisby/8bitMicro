@@ -1,6 +1,6 @@
 Analysis & Synthesis report for ALU_CTRL
-Wed Jun 20 11:05:32 2018
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Wed Jun 27 06:19:05 2018
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
 ---------------------
@@ -13,14 +13,10 @@ Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |ALU_CTRL|state
-  9. User-Specified and Inferred Latches
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "RAM:XRAM"
- 13. Port Connectivity Checks: "ALU:XALU"
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Port Connectivity Checks: "ALU_8:XALU"
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -43,24 +39,24 @@ applicable agreement for further details.
 
 
 
-+--------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                         ;
-+------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 20 11:05:32 2018           ;
-; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
-; Revision Name                      ; ALU_CTRL                                        ;
-; Top-level Entity Name              ; ALU_CTRL                                        ;
-; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 182                                             ;
-;     Total combinational functions  ; 182                                             ;
-;     Dedicated logic registers      ; 3                                               ;
-; Total registers                    ; 3                                               ;
-; Total pins                         ; 42                                              ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total PLLs                         ; 0                                               ;
-+------------------------------------+-------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 27 06:19:05 2018      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; ALU_CTRL                                   ;
+; Top-level Entity Name              ; ALU_CTRL                                   ;
+; Family                             ; Cyclone II                                 ;
+; Total logic elements               ; 0                                          ;
+;     Total combinational functions  ; 0                                          ;
+;     Dedicated logic registers      ; 0                                          ;
+; Total registers                    ; 0                                          ;
+; Total pins                         ; 22                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -159,46 +155,39 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                  ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                           ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
-; ROM.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ROM.vhd      ;         ;
-; ALU_CTRL.vhd                     ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ALU_CTRL.vhd ;         ;
-; ALU.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/ALU.vhd      ;         ;
-; RAM.vhd                          ; yes             ; User VHDL File  ; /home/lisby/grive/Ulatina/Arquitectura/L1/RAM.vhd      ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
+; ALU_CTRL.vhd                     ; yes             ; User VHDL File  ; C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/8bitMicro-Allison/ALU_CTRL.vhd ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/8bitMicro-Allison/ALU.vhd      ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary           ;
-+---------------------------------------------+---------+
-; Resource                                    ; Usage   ;
-+---------------------------------------------+---------+
-; Estimated Total logic elements              ; 182     ;
-;                                             ;         ;
-; Total combinational functions               ; 182     ;
-; Logic element usage by number of LUT inputs ;         ;
-;     -- 4 input functions                    ; 84      ;
-;     -- 3 input functions                    ; 68      ;
-;     -- <=2 input functions                  ; 30      ;
-;                                             ;         ;
-; Logic elements by mode                      ;         ;
-;     -- normal mode                          ; 150     ;
-;     -- arithmetic mode                      ; 32      ;
-;                                             ;         ;
-; Total registers                             ; 3       ;
-;     -- Dedicated logic registers            ; 3       ;
-;     -- I/O registers                        ; 0       ;
-;                                             ;         ;
-; I/O pins                                    ; 42      ;
-; Embedded Multiplier 9-bit elements          ; 0       ;
-; Maximum fan-out node                        ; opIn[1] ;
-; Maximum fan-out                             ; 31      ;
-; Total fan-out                               ; 614     ;
-; Average fan-out                             ; 2.70    ;
-+---------------------------------------------+---------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 22    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
++---------------------------------------------+-------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -206,92 +195,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |ALU_CTRL                  ; 182 (61)          ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 42   ; 0            ; |ALU_CTRL           ; work         ;
-;    |ALU:XALU|              ; 110 (110)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_CTRL|ALU:XALU  ; work         ;
-;    |ROM:XROM|              ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_CTRL|ROM:XROM  ; work         ;
+; |ALU_CTRL                  ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |ALU_CTRL           ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------+
-; State Machine - |ALU_CTRL|state                                                     ;
-+-----------------------+-----------------+-----------------------+-------------------+
-; Name                  ; state.resultToW ; state.moveToRegisters ; state.progmemRead ;
-+-----------------------+-----------------+-----------------------+-------------------+
-; state.progmemRead     ; 0               ; 0                     ; 0                 ;
-; state.moveToRegisters ; 0               ; 1                     ; 1                 ;
-; state.resultToW       ; 1               ; 0                     ; 1                 ;
-+-----------------------+-----------------+-----------------------+-------------------+
-
-
-+----------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                ;
-+-----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
-+-----------------------------------------------------+---------------------+------------------------+
-; W[0]                                                ; state.resultToW     ; yes                    ;
-; W[1]                                                ; state.resultToW     ; yes                    ;
-; W[2]                                                ; state.resultToW     ; yes                    ;
-; W[3]                                                ; state.resultToW     ; yes                    ;
-; W[4]                                                ; state.resultToW     ; yes                    ;
-; W[5]                                                ; state.resultToW     ; yes                    ;
-; W[6]                                                ; state.resultToW     ; yes                    ;
-; W[7]                                                ; state.resultToW     ; yes                    ;
-; opIn[1]                                             ; CoBuffer            ; yes                    ;
-; regW[6]                                             ; CoBuffer            ; yes                    ;
-; CarryInput                                          ; CarryInput          ; yes                    ;
-; opIn[0]                                             ; CoBuffer            ; yes                    ;
-; opIn[3]                                             ; CoBuffer            ; yes                    ;
-; opIn[2]                                             ; CoBuffer            ; yes                    ;
-; regW[7]                                             ; CoBuffer            ; yes                    ;
-; regW[5]                                             ; CoBuffer            ; yes                    ;
-; regW[4]                                             ; CoBuffer            ; yes                    ;
-; regW[3]                                             ; CoBuffer            ; yes                    ;
-; regW[2]                                             ; CoBuffer            ; yes                    ;
-; regW[1]                                             ; CoBuffer            ; yes                    ;
-; regW[0]                                             ; CoBuffer            ; yes                    ;
-; regB[7]                                             ; CoBuffer            ; yes                    ;
-; regB[6]                                             ; CoBuffer            ; yes                    ;
-; regB[5]                                             ; CoBuffer            ; yes                    ;
-; regB[4]                                             ; CoBuffer            ; yes                    ;
-; regB[3]                                             ; CoBuffer            ; yes                    ;
-; regB[2]                                             ; CoBuffer            ; yes                    ;
-; regB[1]                                             ; CoBuffer            ; yes                    ;
-; regB[0]                                             ; CoBuffer            ; yes                    ;
-; CoBuffer                                            ; CoBuffer            ; yes                    ;
-; S[1]                                                ; CoBuffer            ; yes                    ;
-; S[0]                                                ; CoBuffer            ; yes                    ;
-; S[3]                                                ; CoBuffer            ; yes                    ;
-; S[2]                                                ; CoBuffer            ; yes                    ;
-; IR[7]                                               ; CarryInput          ; yes                    ;
-; IR[6]                                               ; CarryInput          ; yes                    ;
-; IR[5]                                               ; CarryInput          ; yes                    ;
-; IR[4]                                               ; CarryInput          ; yes                    ;
-; IR[3]                                               ; CarryInput          ; yes                    ;
-; IR[2]                                               ; CarryInput          ; yes                    ;
-; IR[1]                                               ; CarryInput          ; yes                    ;
-; IR[0]                                               ; CarryInput          ; yes                    ;
-; ALU:XALU|preCo                                      ; ALU:XALU|Mux0       ; yes                    ;
-; nState.resultToW_566                                ; RST                 ; yes                    ;
-; IR[9]                                               ; CarryInput          ; yes                    ;
-; nState.moveToRegisters_572                          ; RST                 ; yes                    ;
-; nState.progmemRead_578                              ; RST                 ; yes                    ;
-; IR[8]                                               ; CarryInput          ; yes                    ;
-; IR[11]                                              ; CarryInput          ; yes                    ;
-; IR[10]                                              ; CarryInput          ; yes                    ;
-; addrReg[0]                                          ; CarryInput          ; yes                    ;
-; addrReg[1]                                          ; CarryInput          ; yes                    ;
-; addrReg[2]                                          ; CarryInput          ; yes                    ;
-; addrReg[3]                                          ; CarryInput          ; yes                    ;
-; ALU:XALU|preR[8]                                    ; ALU:XALU|Mux37      ; yes                    ;
-; PC[0]                                               ; state.resultToW     ; yes                    ;
-; PC[1]                                               ; state.resultToW     ; yes                    ;
-; PC[2]                                               ; state.resultToW     ; yes                    ;
-; PC[3]                                               ; state.resultToW     ; yes                    ;
-; Number of user-specified and inferred latches = 59  ;                     ;                        ;
-+-----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -299,40 +205,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 3     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 3     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 14:1               ; 8 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |ALU_CTRL|ALU:XALU|Mux2    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "RAM:XRAM"                                                                               ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:XALU"                                                                           ;
+; Port Connectivity Checks: "ALU_8:XALU"                                                                         ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
-; hex  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; co   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; zo   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; r    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -349,174 +239,70 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jun 20 11:05:30 2018
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Wed Jun 27 06:19:02 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_CTRL -c ALU_CTRL
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file ROM.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
     Info (12022): Found design unit 1: ROM-ROM_ARCH
     Info (12023): Found entity 1: ROM
-Info (12021): Found 2 design units, including 1 entities, in source file ALU_CTRL.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file alu_ctrl.vhd
     Info (12022): Found design unit 1: ALU_CTRL-archALU_CTRL
     Info (12023): Found entity 1: ALU_CTRL
-Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
-    Info (12022): Found design unit 1: ALU-A_ALU
-    Info (12023): Found entity 1: ALU
-Info (12021): Found 2 design units, including 1 entities, in source file RAM.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: ALU_8-arch_ALU_8
+    Info (12023): Found entity 1: ALU_8
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
     Info (12022): Found design unit 1: RAM-aRAM
     Info (12023): Found entity 1: RAM
 Info (12127): Elaborating entity "ALU_CTRL" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at ALU_CTRL.vhd(11): used explicit default value for signal "cState" because signal was never assigned a value
-Warning (10540): VHDL Signal Declaration warning at ALU_CTRL.vhd(12): used explicit default value for signal "HEXOUT" because signal was never assigned a value
-Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(30): object "hexReg" assigned a value but never read
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(42): used implicit default value for signal "RWRR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(43): used implicit default value for signal "RADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(44): used implicit default value for signal "RDIR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(45): object "RDOR" assigned a value but never read
-Warning (10812): VHDL warning at ALU_CTRL.vhd(72): sensitivity list already contains CarryInput
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(83): signal "CoBuffer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(88): signal "W" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(89): signal "S" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(91): signal "CoReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(94): signal "rValue" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(96): signal "addrReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "W", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "addrReg", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "IR", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "nState", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "CarryInput", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "S", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "regB", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "regW", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "opIn", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(72): inferring latch(es) for signal or variable "CoBuffer", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "CoBuffer" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "opIn[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "opIn[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "opIn[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "opIn[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[4]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[5]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[6]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regW[7]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[4]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[5]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[6]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "regB[7]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "S[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "S[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "S[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "S[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "CarryInput" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "nState.resultToW" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "nState.moveToRegisters" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "nState.progmemRead" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[4]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[5]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[6]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[7]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[8]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[9]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[10]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "IR[11]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "addrReg[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "addrReg[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "addrReg[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "addrReg[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[3]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[4]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[5]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[6]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "W[7]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "PC[0]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "PC[1]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "PC[2]" at ALU_CTRL.vhd(72)
-Info (10041): Inferred latch for "PC[3]" at ALU_CTRL.vhd(72)
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:XALU"
-Warning (10631): VHDL Process Statement warning at ALU.vhd(24): inferring latch(es) for signal or variable "preR", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU.vhd(24): inferring latch(es) for signal or variable "preCo", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "preCo" at ALU.vhd(24)
-Info (10041): Inferred latch for "preR[8]" at ALU.vhd(24)
-Info (12128): Elaborating entity "ROM" for hierarchy "ROM:XROM"
-Info (12128): Elaborating entity "RAM" for hierarchy "RAM:XRAM"
-Warning (10492): VHDL Process Statement warning at RAM.vhd(26): signal "DATA_IN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at RAM.vhd(26): signal "ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at RAM.vhd(28): signal "microRAM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at RAM.vhd(28): signal "ADDR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at RAM.vhd(23): inferring latch(es) for signal or variable "DATA_OUT", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "DATA_OUT[0]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[1]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[2]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[3]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[4]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[5]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[6]" at RAM.vhd(23)
-Info (10041): Inferred latch for "DATA_OUT[7]" at RAM.vhd(23)
-Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "IR[0]" merged with LATCH primitive "IR[1]"
-    Info (13026): Duplicate LATCH primitive "regB[0]" merged with LATCH primitive "regB[1]"
-Warning (13012): Latch ALU:XALU|preCo has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opIn[3]
-Warning (13012): Latch ALU:XALU|preR[8] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal opIn[2]
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(9): used implicit default value for signal "result" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(10): used implicit default value for signal "Zout" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(10): used implicit default value for signal "carryOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(11): used implicit default value for signal "currentState" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(20): used implicit default value for signal "regA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(20): used implicit default value for signal "regB" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(20): object "regResult" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(21): used implicit default value for signal "regOp" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(22): object "regCo" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at ALU_CTRL.vhd(22): object "regZo" assigned a value but never read
+Info (12128): Elaborating entity "ALU_8" for hierarchy "ALU_8:XALU"
+Warning (10631): VHDL Process Statement warning at ALU.vhd(20): inferring latch(es) for signal or variable "preR", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "preR[8]" at ALU.vhd(20)
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "cState[0]" is stuck at GND
-    Warning (13410): Pin "cState[1]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[0]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[1]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[2]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[3]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[4]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[5]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[6]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[7]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[8]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[9]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[10]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[11]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[12]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[13]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[14]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[15]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[16]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[17]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[18]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[19]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[20]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[21]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[22]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[23]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[24]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[25]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[26]" is stuck at GND
-    Warning (13410): Pin "HEXOUT[27]" is stuck at GND
+    Warning (13410): Pin "result[0]" is stuck at GND
+    Warning (13410): Pin "result[1]" is stuck at GND
+    Warning (13410): Pin "result[2]" is stuck at GND
+    Warning (13410): Pin "result[3]" is stuck at GND
+    Warning (13410): Pin "result[4]" is stuck at GND
+    Warning (13410): Pin "result[5]" is stuck at GND
+    Warning (13410): Pin "result[6]" is stuck at GND
+    Warning (13410): Pin "result[7]" is stuck at GND
+    Warning (13410): Pin "Zout" is stuck at GND
+    Warning (13410): Pin "carryOut" is stuck at GND
+    Warning (13410): Pin "currentState[0]" is stuck at GND
+    Warning (13410): Pin "currentState[1]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 226 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 40 output pins
-    Info (21061): Implemented 184 logic cells
-Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 68 warnings
-    Info: Peak virtual memory: 363 megabytes
-    Info: Processing ended: Wed Jun 20 11:05:32 2018
-    Info: Elapsed time: 00:00:02
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk"
+    Warning (15610): No output dependent on input pin "carryIn"
+    Warning (15610): No output dependent on input pin "valueInput[0]"
+    Warning (15610): No output dependent on input pin "valueInput[1]"
+    Warning (15610): No output dependent on input pin "valueInput[2]"
+    Warning (15610): No output dependent on input pin "valueInput[3]"
+    Warning (15610): No output dependent on input pin "valueInput[4]"
+    Warning (15610): No output dependent on input pin "valueInput[5]"
+    Warning (15610): No output dependent on input pin "valueInput[6]"
+    Warning (15610): No output dependent on input pin "valueInput[7]"
+Info (21057): Implemented 22 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 12 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4647 megabytes
+    Info: Processing ended: Wed Jun 27 06:19:05 2018
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:02
 
 
