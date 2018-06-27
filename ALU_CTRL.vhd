@@ -88,10 +88,10 @@ BEGIN
 					S <= IR(11 downto 8);		--separa instrucción y guarda en S
 					--regB <= IR(7 downto 0);		--separa byte e introduce el byte en regB [B:ALU]
 
-					IF IR(13 downto 11)="11" THEN
+					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
 						
-					ELSIF IR(13 downto 11)="00" THEN
+					ELSIF IR(13 downto 12)="00" THEN
 						regB <= RDOR;	--escribe en regB la salida de la RAM
 						
 					ELSE
