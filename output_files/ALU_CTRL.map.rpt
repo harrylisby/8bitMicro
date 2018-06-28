@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ALU_CTRL
-Wed Jun 27 19:30:13 2018
+Wed Jun 27 17:42:07 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -45,13 +45,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 27 19:30:13 2018      ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 27 17:42:07 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                   ;
 ; Top-level Entity Name              ; ALU_CTRL                                   ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 193                                        ;
-;     Total combinational functions  ; 193                                        ;
+; Total logic elements               ; 181                                        ;
+;     Total combinational functions  ; 181                                        ;
 ;     Dedicated logic registers      ; 3                                          ;
 ; Total registers                    ; 3                                          ;
 ; Total pins                         ; 14                                         ;
@@ -175,17 +175,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 193      ;
+; Estimated Total logic elements              ; 181      ;
 ;                                             ;          ;
-; Total combinational functions               ; 193      ;
+; Total combinational functions               ; 181      ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 92       ;
-;     -- 3 input functions                    ; 71       ;
-;     -- <=2 input functions                  ; 30       ;
+;     -- 4 input functions                    ; 84       ;
+;     -- 3 input functions                    ; 66       ;
+;     -- <=2 input functions                  ; 31       ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 163      ;
-;     -- arithmetic mode                      ; 30       ;
+;     -- normal mode                          ; 149      ;
+;     -- arithmetic mode                      ; 32       ;
 ;                                             ;          ;
 ; Total registers                             ; 3        ;
 ;     -- Dedicated logic registers            ; 3        ;
@@ -194,9 +194,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; I/O pins                                    ; 14       ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Maximum fan-out node                        ; regOp[1] ;
-; Maximum fan-out                             ; 40       ;
-; Total fan-out                               ; 649      ;
-; Average fan-out                             ; 3.09     ;
+; Maximum fan-out                             ; 29       ;
+; Total fan-out                               ; 603      ;
+; Average fan-out                             ; 3.05     ;
 +---------------------------------------------+----------+
 
 
@@ -205,8 +205,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
-; |ALU_CTRL                  ; 193 (62)          ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |ALU_CTRL            ;              ;
-;    |ALU_8:XALU|            ; 120 (120)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_CTRL|ALU_8:XALU ;              ;
+; |ALU_CTRL                  ; 181 (63)          ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |ALU_CTRL            ;              ;
+;    |ALU_8:XALU|            ; 107 (107)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_CTRL|ALU_8:XALU ;              ;
 ;    |ROM:XROM|              ; 11 (11)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_CTRL|ROM:XROM   ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -229,19 +229,17 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+------------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal    ; Free of Timing Hazards ;
 +-----------------------------------------------------+------------------------+------------------------+
-; carryOut$latch                                      ; carryOut               ; yes                    ;
-; Zout$latch                                          ; carryOut               ; yes                    ;
-; regW[7]                                             ; regW[6]                ; yes                    ;
-; regW[0]                                             ; regW[6]                ; yes                    ;
-; regOp[0]                                            ; regW[6]                ; yes                    ;
-; regOp[2]                                            ; regW[6]                ; yes                    ;
+; Zout$latch                                          ; Zout                   ; yes                    ;
 ; regOp[1]                                            ; regW[6]                ; yes                    ;
-; ALU_8:XALU|preR[8]                                  ; ALU_8:XALU|Mux0        ; yes                    ;
-; regOp[3]                                            ; regW[6]                ; yes                    ;
+; regW[0]                                             ; regW[6]                ; yes                    ;
 ; regW[2]                                             ; regW[6]                ; yes                    ;
+; regOp[0]                                            ; regW[6]                ; yes                    ;
+; regOp[3]                                            ; regW[6]                ; yes                    ;
+; regOp[2]                                            ; regW[6]                ; yes                    ;
 ; regW[1]                                             ; regW[6]                ; yes                    ;
 ; regB[1]                                             ; regW[6]                ; yes                    ;
 ; regB[0]                                             ; regW[6]                ; yes                    ;
+; carryIn                                             ; carryIn                ; yes                    ;
 ; regW[3]                                             ; regW[6]                ; yes                    ;
 ; regB[2]                                             ; regW[6]                ; yes                    ;
 ; regW[4]                                             ; regW[6]                ; yes                    ;
@@ -250,44 +248,47 @@ Encoding Type:  One-Hot
 ; regB[4]                                             ; regW[6]                ; yes                    ;
 ; regW[6]                                             ; regW[6]                ; yes                    ;
 ; regB[5]                                             ; regW[6]                ; yes                    ;
+; regW[7]                                             ; regW[6]                ; yes                    ;
 ; regB[6]                                             ; regW[6]                ; yes                    ;
 ; regB[7]                                             ; regW[6]                ; yes                    ;
-; prox_estado.moveToRegisters_584                     ; rst                    ; yes                    ;
-; prox_estado.progMemRead_590                         ; rst                    ; yes                    ;
-; W[7]                                                ; estado.resultToW       ; yes                    ;
-; W[0]                                                ; estado.resultToW       ; yes                    ;
-; regS[0]                                             ; regW[6]                ; yes                    ;
-; regS[2]                                             ; regW[6]                ; yes                    ;
+; prox_estado.moveToRegisters_588                     ; rst                    ; yes                    ;
+; prox_estado.progMemRead_594                         ; rst                    ; yes                    ;
 ; regS[1]                                             ; regW[6]                ; yes                    ;
-; regS[3]                                             ; regW[6]                ; yes                    ;
-; prox_estado.resultToW_578                           ; rst                    ; yes                    ;
+; W[0]                                                ; estado.resultToW       ; yes                    ;
 ; W[2]                                                ; estado.resultToW       ; yes                    ;
+; regS[0]                                             ; regW[6]                ; yes                    ;
+; regS[3]                                             ; regW[6]                ; yes                    ;
+; regS[2]                                             ; regW[6]                ; yes                    ;
 ; W[1]                                                ; estado.resultToW       ; yes                    ;
-; IR[1]                                               ; IR[0]                  ; yes                    ;
-; IR[0]                                               ; IR[0]                  ; yes                    ;
+; IR[1]                                               ; carryIn                ; yes                    ;
+; IR[0]                                               ; carryIn                ; yes                    ;
+; CoBuffer                                            ; Zout                   ; yes                    ;
 ; W[3]                                                ; estado.resultToW       ; yes                    ;
-; IR[2]                                               ; IR[0]                  ; yes                    ;
+; IR[2]                                               ; carryIn                ; yes                    ;
 ; W[4]                                                ; estado.resultToW       ; yes                    ;
-; IR[3]                                               ; IR[0]                  ; yes                    ;
+; IR[3]                                               ; carryIn                ; yes                    ;
 ; W[5]                                                ; estado.resultToW       ; yes                    ;
-; IR[4]                                               ; IR[0]                  ; yes                    ;
+; IR[4]                                               ; carryIn                ; yes                    ;
 ; W[6]                                                ; estado.resultToW       ; yes                    ;
-; IR[5]                                               ; IR[0]                  ; yes                    ;
-; IR[6]                                               ; IR[0]                  ; yes                    ;
-; IR[7]                                               ; IR[0]                  ; yes                    ;
-; IR[8]                                               ; IR[0]                  ; yes                    ;
-; IR[10]                                              ; IR[0]                  ; yes                    ;
-; IR[9]                                               ; IR[0]                  ; yes                    ;
-; IR[11]                                              ; IR[0]                  ; yes                    ;
-; regAddress[0]                                       ; IR[0]                  ; yes                    ;
-; regAddress[1]                                       ; IR[0]                  ; yes                    ;
-; regAddress[2]                                       ; IR[0]                  ; yes                    ;
-; regAddress[3]                                       ; IR[0]                  ; yes                    ;
+; IR[5]                                               ; carryIn                ; yes                    ;
+; W[7]                                                ; estado.resultToW       ; yes                    ;
+; IR[6]                                               ; carryIn                ; yes                    ;
+; IR[7]                                               ; carryIn                ; yes                    ;
+; prox_estado.resultToW_582                           ; rst                    ; yes                    ;
+; IR[9]                                               ; carryIn                ; yes                    ;
+; IR[8]                                               ; carryIn                ; yes                    ;
+; IR[11]                                              ; carryIn                ; yes                    ;
+; IR[10]                                              ; carryIn                ; yes                    ;
+; regAddress[0]                                       ; carryIn                ; yes                    ;
+; regAddress[1]                                       ; carryIn                ; yes                    ;
+; regAddress[2]                                       ; carryIn                ; yes                    ;
+; regAddress[3]                                       ; carryIn                ; yes                    ;
+; ALU_8:XALU|preR[8]                                  ; ALU_8:XALU|Mux0        ; yes                    ;
 ; PC[0]                                               ; estado.moveToRegisters ; yes                    ;
 ; PC[1]                                               ; estado.moveToRegisters ; yes                    ;
 ; PC[2]                                               ; estado.moveToRegisters ; yes                    ;
 ; PC[3]                                               ; estado.moveToRegisters ; yes                    ;
-; Number of user-specified and inferred latches = 58  ;                        ;                        ;
+; Number of user-specified and inferred latches = 59  ;                        ;                        ;
 +-----------------------------------------------------+------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -322,7 +323,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 14:1               ; 6 bits    ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |ALU_CTRL|ALU_8:XALU|Mux3  ;
+; 14:1               ; 8 bits    ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |ALU_CTRL|ALU_8:XALU|Mux2  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -331,7 +332,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -341,7 +342,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Jun 27 19:30:10 2018
+    Info: Processing started: Wed Jun 27 17:42:03 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ALU_CTRL -c ALU_CTRL
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
@@ -358,89 +359,92 @@ Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
     Info (12023): Found entity 1: RAM
 Info (12127): Elaborating entity "ALU_CTRL" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(8): used implicit default value for signal "valueOutput" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(23): used implicit default value for signal "carryIn" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(35): used implicit default value for signal "regAddr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(36): used implicit default value for signal "regdIN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(80): signal "regdOUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(84): signal "W" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(85): signal "regS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(86): signal "regAddress" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(93): signal "regResult" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(97): signal "regResult" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(105): signal "regCo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(106): signal "regZo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "W", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regAddress", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "IR", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regWE", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "prox_estado", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regS", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regB", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regW", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "regOp", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "carryOut", which holds its previous value in one or more paths through the process
-Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(58): inferring latch(es) for signal or variable "Zout", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "Zout" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "carryOut" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regOp[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regOp[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regOp[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regOp[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regW[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regB[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regS[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regS[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regS[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regS[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "prox_estado.resultToW" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "prox_estado.moveToRegisters" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "prox_estado.progMemRead" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regWE" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[8]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[9]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[10]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[11]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[12]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "IR[13]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regAddress[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regAddress[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regAddress[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "regAddress[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[3]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[4]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[5]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[6]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "W[7]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[0]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[1]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[2]" at ALU_CTRL.vhd(58)
-Info (10041): Inferred latch for "PC[3]" at ALU_CTRL.vhd(58)
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(9): used implicit default value for signal "carryOut" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(36): used implicit default value for signal "regAddr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ALU_CTRL.vhd(37): used implicit default value for signal "regdIN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(71): signal "CoBuffer" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(81): signal "regdOUT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(85): signal "W" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(86): signal "regS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(87): signal "regAddress" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(94): signal "regResult" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(98): signal "regResult" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(106): signal "regCo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ALU_CTRL.vhd(107): signal "regZo" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "PC", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "W", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regAddress", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "IR", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "carryIn", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regWE", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "prox_estado", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regS", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regB", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regW", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "regOp", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "CoBuffer", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU_CTRL.vhd(59): inferring latch(es) for signal or variable "Zout", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "Zout" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "CoBuffer" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regOp[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regOp[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regOp[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regOp[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[4]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[5]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[6]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regW[7]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[4]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[5]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[6]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regB[7]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regS[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regS[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regS[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regS[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "prox_estado.resultToW" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "prox_estado.moveToRegisters" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "prox_estado.progMemRead" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regWE" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "carryIn" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[4]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[5]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[6]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[7]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[8]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[9]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[10]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[11]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[12]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "IR[13]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regAddress[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regAddress[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regAddress[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "regAddress[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[3]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[4]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[5]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[6]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "W[7]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "PC[0]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "PC[1]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "PC[2]" at ALU_CTRL.vhd(59)
+Info (10041): Inferred latch for "PC[3]" at ALU_CTRL.vhd(59)
 Info (12128): Elaborating entity "ALU_8" for hierarchy "ALU_8:XALU"
 Warning (10631): VHDL Process Statement warning at ALU.vhd(20): inferring latch(es) for signal or variable "preR", which holds its previous value in one or more paths through the process
 Info (10041): Inferred latch for "preR[8]" at ALU.vhd(20)
@@ -460,17 +464,18 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "valueOutput[5]" is stuck at GND
     Warning (13410): Pin "valueOutput[6]" is stuck at GND
     Warning (13410): Pin "valueOutput[7]" is stuck at GND
+    Warning (13410): Pin "carryOut" is stuck at GND
 Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 209 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 197 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 195 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4655 megabytes
-    Info: Processing ended: Wed Jun 27 19:30:13 2018
-    Info: Elapsed time: 00:00:03
+    Info (21061): Implemented 183 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 4653 megabytes
+    Info: Processing ended: Wed Jun 27 17:42:07 2018
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:03
 
 

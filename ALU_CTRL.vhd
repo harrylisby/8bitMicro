@@ -21,6 +21,7 @@ SIGNAL prox_estado: tipo_estado;
 SIGNAL regB, regResult: std_logic_vector(7 downto 0);
 SIGNAL regOp: std_logic_vector(3 downto 0);
 SIGNAL regCo, regZo, carryIn: std_logic;
+SIGNAL CoBuffer: std_logic := '0';
 
 --ROM
 SIGNAL W: std_logic_vector(7 downto 0);
@@ -61,13 +62,13 @@ BEGIN
 		IF(rst = '0') THEN
 			PC <= "0000";
 			W <= "00000000";
-		--	regCo <= '0';
 		ELSE
 			CASE(estado) IS
 				WHEN progMemRead =>
 				
 					regAddress <= PC;
 					IR <= regData;
+					carryIn <= CoBuffer;
 					regWE <= '1'; --para que no escriba
 					prox_estado <= moveToRegisters;
 					
@@ -102,7 +103,7 @@ BEGIN
 					ELSE
 						regWE <= '1';
 					END IF;
-					carryOut <= regCo;
+					CoBuffer <= regCo;
 					Zout <= regZo;
 					prox_estado <= progMemRead;
 					
