@@ -13,7 +13,7 @@ END ENTITY RAM;
 
 ARCHITECTURE arch_RAM OF RAM IS
 	
-	TYPE ram_type IS ARRAY (0 to (2**addr'length)-1) OF std_logic_vector(datain'range);
+	TYPE ram_type IS ARRAY ((2**addr'length)-1 downto 0) OF std_logic_vector(datain'range);
 	SIGNAL ram_s: ram_type;
 	SIGNAL read_address: std_logic_vector(addr'range);
 
