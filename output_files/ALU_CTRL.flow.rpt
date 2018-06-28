@@ -1,5 +1,5 @@
 Flow report for ALU_CTRL
-Wed Jun 27 17:42:27 2018
+Wed Jun 27 19:30:31 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 27 17:42:27 2018      ;
+; Flow Status                        ; Successful - Wed Jun 27 19:30:31 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; ALU_CTRL                                   ;
 ; Top-level Entity Name              ; ALU_CTRL                                   ;
 ; Family                             ; Cyclone II                                 ;
 ; Device                             ; EP2C20F484C7                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 181 / 18,752 ( < 1 % )                     ;
-;     Total combinational functions  ; 181 / 18,752 ( < 1 % )                     ;
+; Total logic elements               ; 193 / 18,752 ( 1 % )                       ;
+;     Total combinational functions  ; 193 / 18,752 ( 1 % )                       ;
 ;     Dedicated logic registers      ; 3 / 18,752 ( < 1 % )                       ;
 ; Total registers                    ; 3                                          ;
 ; Total pins                         ; 14 / 315 ( 4 % )                           ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/27/2018 17:42:04 ;
+; Start date & time ; 06/27/2018 19:30:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ALU_CTRL            ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 1097412750935.153014292407448         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 1097412750935.153014941010964         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
@@ -94,12 +94,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 4653 MB             ; 00:00:02                           ;
-; Fitter                    ; 00:00:10     ; 1.0                     ; 4880 MB             ; 00:00:09                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 4648 MB             ; 00:00:03                           ;
+; Fitter                    ; 00:00:09     ; 1.0                     ; 4890 MB             ; 00:00:09                           ;
 ; Assembler                 ; 00:00:02     ; 1.0                     ; 4565 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4567 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4567 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4531 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:19     ; --                      ; --                  ; 00:00:16                           ;
+; Total                     ; 00:00:17     ; --                      ; --                  ; 00:00:16                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
