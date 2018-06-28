@@ -124,12 +124,8 @@ BEGIN
 						RWRR <= '1';
 					END IF;
 					
-						
-						
 					PC <= addrReg + '1';	--suma +1 a addrReg
-					
 					--agregar Z
-
 					nState <= progmemRead;
 
 			END CASE;
