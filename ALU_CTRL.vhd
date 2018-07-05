@@ -63,6 +63,7 @@ BEGIN
 	);
 						
 	XRAM: ENTITY work.RAM PORT MAP(
+					clock => clk,
 					WR => RWRR,
 					ADDR => RADDR,
 					DATA_IN => RDIR,
