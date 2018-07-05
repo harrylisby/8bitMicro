@@ -1,6 +1,0 @@
-
-State Machine - |ALU_CTRL|state
-Name state.resultToW state.moveToRegisters state.progmemRead 
-state.progmemRead 0 0 0 
-state.moveToRegisters 0 1 1 
-state.resultToW 1 0 1 
