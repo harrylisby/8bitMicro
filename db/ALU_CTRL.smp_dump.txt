@@ -1,0 +1,6 @@
+
+State Machine - |ALU_CTRL|estado
+Name estado.resultToW estado.moveToRegisters estado.progMemRead 
+estado.progMemRead 0 0 0 
+estado.moveToRegisters 0 1 1 
+estado.resultToW 1 0 1 
