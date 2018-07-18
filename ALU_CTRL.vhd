@@ -111,10 +111,10 @@ BEGIN
 				WHEN resultToW =>
 					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
 					
-					IF IR(13 downto 12)="11" THEN
+					IF IR(13 downto 12)="00" THEN
 						W <= rValue;
 						RWRR <= '1';
-					ELSIF IR(13 downto 12)="00" THEN
+					ELSIF IR(13 downto 12)="11" THEN
 						IF IR(7)='0' THEN
 							W <= rValue;
 							RWRR <= '1';
