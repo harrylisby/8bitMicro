@@ -44,6 +44,8 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	SIGNAL RDIR: std_logic_vector(7 downto 0); --ram data in register;
 	SIGNAL RDOR: std_logic_vector(7 downto 0); --ram data out register;
 	
+	SIGNAL HEXIT: std_logic_vector(27 downto 0);
+	
 BEGIN
 
 	XALU: ENTITY work.ALU PORT MAP(
@@ -78,6 +80,7 @@ BEGIN
 		ELSE
 			CASE state IS	
 				WHEN progmemRead =>
+					HEXIT <= "1111111111111100001101111001";
 					addrReg <= PC;		-- introduce a PC [addr:ROM] el valor del contador addrReg
 					IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
 					CarryInput <= CoBuffer;	--escribe valor del buffer Co a Ci
@@ -86,6 +89,7 @@ BEGIN
 					nState <= moveToRegisters;
 
 				WHEN moveToRegisters =>
+					HEXIT <= "1111111111111100001100100100";
 					S <= IR(11 downto 8);		--separa instrucción y guarda en S
 					--regB <= IR(7 downto 0);	--separa byte e introduce el byte en regB [B:ALU]
 
@@ -109,6 +113,7 @@ BEGIN
 					nState <= resultToW;
 
 				WHEN resultToW =>
+					HEXIT <= "1111111111111100001100110000";
 					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
 					
 					IF IR(13 downto 12)="11" THEN
@@ -138,6 +143,7 @@ BEGIN
 	--dataReg <= RDOR;
 	RDIR <= rValue;
 	Zout <= ZoReg;
+	HEXOUT <= HEXIT;
 	
 	PROCESS(nState,clk,RST)
 	BEGIN
