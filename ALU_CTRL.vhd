@@ -65,7 +65,7 @@ BEGIN
 	XRAM: ENTITY work.RAM PORT MAP(
 					clock => clk,
 					WR => RWRR,
-					ADDR => RADDR,
+					ADDR => IR(6 DOWNTO 0),--RADDR(6 DOWNTO 0),
 					DATA_IN => RDIR,
 					DATA_OUT => RDOR
 	);
@@ -87,7 +87,7 @@ BEGIN
 
 				WHEN moveToRegisters =>
 					S <= IR(11 downto 8);		--separa instrucción y guarda en S
-					--regB <= IR(7 downto 0);		--separa byte e introduce el byte en regB [B:ALU]
+					--regB <= IR(7 downto 0);	--separa byte e introduce el byte en regB [B:ALU]
 
 					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
@@ -99,8 +99,8 @@ BEGIN
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
 					
-					regW <= W;						--mueve el valor de W a regW [A:ALU]
-					opIn <= S;						--introduce a opIn [Op:ALU] la instrucción
+					regW <= W;			--mueve el valor de W a regW [A:ALU]
+					opIn <= S;			--introduce a opIn [Op:ALU] la instrucción
 					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
 					
 					--MOVER CoBuffer a resultToW (?)
@@ -133,9 +133,11 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
-	Zout <= ZoReg;
 	CarryOut <= CoBuffer;
 	valueOutput <= W;
+	--dataReg <= RDOR;
+	RDIR <= rValue;
+	Zout <= ZoReg;
 	
 	PROCESS(nState,clk,RST)
 	BEGIN

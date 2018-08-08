@@ -14,26 +14,18 @@ ENTITY RAM IS
 END ENTITY RAM;
 
 ARCHITECTURE aRAM OF RAM IS 
-
-CONSTANT addrWidth : integer := 7;
-CONSTANT dataWidth : integer := 8;
-
-TYPE ramArray IS ARRAY (2**addrWidth-1 downto 0) of std_logic_vector (dataWidth-1 downto 0);
+TYPE ramArray IS ARRAY (0 TO 127) OF std_logic_vector (7 DOWNTO 0);
 SIGNAL microRAM : ramArray; --Esta señal es un array que representa al type que creado
-SIGNAL read_address: std_logic_vector(addr'range);
+--SIGNAL read_address: std_logic_vector(addr'range);
 BEGIN
-
-	PROCESS(clock)
-	BEGIN
-		IF clock'event AND clock = '1' THEN
-			IF WR = '1' THEN
-				IF(WR = '0') THEN 
-				microRAM(conv_integer(ADDR)) <= DATA_IN;  --Si modo es write [wr=1], data in se escribeen addr
-				ELSE
-					DATA_OUT <= microRAM(conv_integer(ADDR)); --Si modo es read [wr=0], data out = word en addr
-				END IF;
+	PROCESS(clock) BEGIN
+		IF (rising_edge(clock)) THEN
+			IF WR = '0' THEN
+				microRAM(to_integer(unsigned(ADDR)))<=DATA_IN;
+			ELSE
+				DATA_OUT<=microRAM(to_integer(unsigned(ADDR)));
 			END IF;
-			read_address <= ADDR;
+			--read_address <= ADDR;
 		END IF;
 	END PROCESS;
 	
