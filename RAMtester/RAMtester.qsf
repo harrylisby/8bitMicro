@@ -18,14 +18,14 @@
 #
 # Quartus II 64-Bit
 # Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-# Date created = 09:21:38  mayo 30, 2018
+# Date created = 20:12:40  July 18, 2018
 #
 # -------------------------------------------------------------------------- #
 #
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		ALU_CTRL_assignment_defaults.qdf
+#		RAMtester_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -38,38 +38,52 @@
 
 set_global_assignment -name FAMILY "Cyclone II"
 set_global_assignment -name DEVICE EP2C20F484C7
-set_global_assignment -name TOP_LEVEL_ENTITY ALU_CTRL
+set_global_assignment -name TOP_LEVEL_ENTITY RAMtester
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
-set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:21:38  MAYO 30, 2018"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:12:40  JULY 18, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
-set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "Design Compiler"
+set_global_assignment -name EDA_INPUT_VCC_NAME VDD -section_id eda_design_synthesis
+set_global_assignment -name EDA_LMF_FILE altsyn.lmf -section_id eda_design_synthesis
+set_global_assignment -name EDA_INPUT_DATA_FORMAT VHDL -section_id eda_design_synthesis
+set_global_assignment -name VHDL_FILE RAM.vhd
+set_global_assignment -name VHDL_FILE RAMtester.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VHDL_FILE ROM.vhd
-set_global_assignment -name VHDL_FILE ALU_CTRL.vhd
-set_global_assignment -name VHDL_FILE ALU.vhd
-set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
-set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_location_assignment PIN_M2 -to DATAIN[7]
+set_location_assignment PIN_U11 -to DATAIN[6]
+set_location_assignment PIN_U12 -to DATAIN[5]
+set_location_assignment PIN_W12 -to DATAIN[4]
+set_location_assignment PIN_V12 -to DATAIN[3]
+set_location_assignment PIN_M22 -to DATAIN[2]
+set_location_assignment PIN_L21 -to DATAIN[1]
+set_location_assignment PIN_L22 -to DATAIN[0]
 set_location_assignment PIN_R22 -to clk
-set_location_assignment PIN_R17 -to cState[1]
-set_location_assignment PIN_R18 -to cState[0]
-set_location_assignment PIN_R19 -to carryOut
-set_location_assignment PIN_Y21 -to valueOutput[7]
-set_location_assignment PIN_Y22 -to valueOutput[6]
-set_location_assignment PIN_W21 -to valueOutput[5]
-set_location_assignment PIN_W22 -to valueOutput[4]
-set_location_assignment PIN_V21 -to valueOutput[3]
-set_location_assignment PIN_V22 -to valueOutput[2]
-set_location_assignment PIN_U21 -to valueOutput[1]
-set_location_assignment PIN_U22 -to valueOutput[0]
-set_location_assignment PIN_R20 -to Zout
-set_location_assignment PIN_R21 -to RST
-set_global_assignment -name VHDL_FILE RAM.vhd
+set_location_assignment PIN_R21 -to ALE
+set_location_assignment PIN_T22 -to DLE
+set_location_assignment PIN_T21 -to nWE
+set_location_assignment PIN_Y21 -to DATAOUT[7]
+set_location_assignment PIN_Y22 -to DATAOUT[6]
+set_location_assignment PIN_W21 -to DATAOUT[5]
+set_location_assignment PIN_W22 -to DATAOUT[4]
+set_location_assignment PIN_V21 -to DATAOUT[3]
+set_location_assignment PIN_V22 -to DATAOUT[2]
+set_location_assignment PIN_U21 -to DATAOUT[1]
+set_location_assignment PIN_U22 -to DATAOUT[0]
+set_location_assignment PIN_Y18 -to ALOUT[6]
+set_location_assignment PIN_V19 -to ALOUT[5]
+set_location_assignment PIN_T18 -to ALOUT[4]
+set_location_assignment PIN_Y19 -to ALOUT[3]
+set_location_assignment PIN_U19 -to ALOUT[2]
+set_location_assignment PIN_R19 -to ALOUT[1]
+set_location_assignment PIN_R20 -to ALOUT[0]
+set_location_assignment PIN_R17 -to nweout
+set_location_assignment PIN_R18 -to dleout
+set_location_assignment PIN_U18 -to clkout
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

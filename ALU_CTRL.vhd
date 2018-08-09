@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 lll	library ieee;
+=======
+library ieee;
+>>>>>>> de5f2c4b23d1e935a3401e9e814b06d818d36326
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -44,6 +48,8 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	SIGNAL RDIR: std_logic_vector(7 downto 0); --ram data in register;
 	SIGNAL RDOR: std_logic_vector(7 downto 0); --ram data out register;
 	
+	SIGNAL HEXIT: std_logic_vector(27 downto 0);
+	
 BEGIN
 
 	XALU: ENTITY work.ALU PORT MAP(
@@ -65,7 +71,7 @@ BEGIN
 	XRAM: ENTITY work.RAM PORT MAP(
 					clock => clk,
 					WR => RWRR,
-					ADDR => RADDR,
+					ADDR => IR(6 DOWNTO 0),--RADDR(6 DOWNTO 0),
 					DATA_IN => RDIR,
 					DATA_OUT => RDOR
 	);
@@ -78,6 +84,7 @@ BEGIN
 		ELSE
 			CASE state IS	
 				WHEN progmemRead =>
+					HEXIT <= "1111111111111100001101111001";
 					addrReg <= PC;		-- introduce a PC [addr:ROM] el valor del contador addrReg
 					IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
 					CarryInput <= CoBuffer;	--escribe valor del buffer Co a Ci
@@ -86,8 +93,9 @@ BEGIN
 					nState <= moveToRegisters;
 
 				WHEN moveToRegisters =>
+					HEXIT <= "1111111111111100001100100100";
 					S <= IR(11 downto 8);		--separa instrucción y guarda en S
-					--regB <= IR(7 downto 0);		--separa byte e introduce el byte en regB [B:ALU]
+					--regB <= IR(7 downto 0);	--separa byte e introduce el byte en regB [B:ALU]
 
 					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
@@ -99,8 +107,8 @@ BEGIN
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
 					
-					regW <= W;						--mueve el valor de W a regW [A:ALU]
-					opIn <= S;						--introduce a opIn [Op:ALU] la instrucción
+					regW <= W;			--mueve el valor de W a regW [A:ALU]
+					opIn <= S;			--introduce a opIn [Op:ALU] la instrucción
 					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
 					
 					--MOVER CoBuffer a resultToW (?)
@@ -108,6 +116,7 @@ BEGIN
 					nState <= resultToW;
 
 				WHEN resultToW =>
+					HEXIT <= "1111111111111100001100110000";
 					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
 					
 					IF IR(13 downto 12)="11" THEN
@@ -132,9 +141,12 @@ BEGIN
 		END IF;
 	END PROCESS;
 	
-	Zout <= ZoReg;
 	CarryOut <= CoBuffer;
 	valueOutput <= W;
+	--dataReg <= RDOR;
+	RDIR <= rValue;
+	Zout <= ZoReg;
+	HEXOUT <= HEXIT;
 	
 	PROCESS(nState,clk,RST)
 	BEGIN
