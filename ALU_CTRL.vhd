@@ -1,15 +1,12 @@
-<<<<<<< HEAD
-lll	library ieee;
-=======
+
 library ieee;
->>>>>>> de5f2c4b23d1e935a3401e9e814b06d818d36326
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 ENTITY ALU_CTRL IS
 	PORT(
 		clk: in	std_logic; --reloj maestro del sistema
-		valueOutput: out std_logic_vector(7 downto 0):="00000000"; --resultado de operación
+		valueOutput: out std_logic_vector(7 downto 0):="00000000"; --resultado de operaciÃ³n
 		Zout: out std_logic:='0'; --zout
 		carryOut: out std_logic:='0'; --carry de salida 1 bit
 		cState:	out std_logic_vector(1 downto 0):="00";
@@ -94,7 +91,7 @@ BEGIN
 
 				WHEN moveToRegisters =>
 					HEXIT <= "1111111111111100001100100100";
-					S <= IR(11 downto 8);		--separa instrucción y guarda en S
+					S <= IR(11 downto 8);		--separa instrucciÃ³n y guarda en S
 					--regB <= IR(7 downto 0);	--separa byte e introduce el byte en regB [B:ALU]
 
 					IF IR(13 downto 12)="11" THEN
@@ -108,7 +105,7 @@ BEGIN
 					END IF;
 					
 					regW <= W;			--mueve el valor de W a regW [A:ALU]
-					opIn <= S;			--introduce a opIn [Op:ALU] la instrucción
+					opIn <= S;			--introduce a opIn [Op:ALU] la instrucciÃ³n
 					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
 					
 					--MOVER CoBuffer a resultToW (?)
