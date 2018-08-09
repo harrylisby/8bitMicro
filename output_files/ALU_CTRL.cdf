@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP2C20F484) Path("C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/LABS/Rep_Arqui/8bitMicro/output_files/") File("ALU_CTRL.sof") MfrSpec(OpMask(1));
+		Device PartName(EP2C20F484) Path("C:/Users/Alison/Desktop/U/8/Arquitectura de Computadoras/LABS/8BitMicro/output_files/") File("ALU_CTRL.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
