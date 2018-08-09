@@ -41,7 +41,7 @@ set_global_assignment -name DEVICE EP2C20F484C7
 set_global_assignment -name TOP_LEVEL_ENTITY ALU_CTRL
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:21:38  MAYO 30, 2018"
-set_global_assignment -name LAST_QUARTUS_VERSION 13.0
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -69,6 +69,34 @@ set_location_assignment PIN_V21 -to valueOutput[3]
 set_location_assignment PIN_V22 -to valueOutput[2]
 set_location_assignment PIN_U21 -to valueOutput[1]
 set_location_assignment PIN_U22 -to valueOutput[0]
+set_location_assignment PIN_D4 -to HEXOUT[27]
+set_location_assignment PIN_F3 -to HEXOUT[26]
+set_location_assignment PIN_L8 -to HEXOUT[25]
+set_location_assignment PIN_J4 -to HEXOUT[24]
+set_location_assignment PIN_D6 -to HEXOUT[23]
+set_location_assignment PIN_D5 -to HEXOUT[22]
+set_location_assignment PIN_F4 -to HEXOUT[21]
+set_location_assignment PIN_D3 -to HEXOUT[20]
+set_location_assignment PIN_E4 -to HEXOUT[19]
+set_location_assignment PIN_E3 -to HEXOUT[18]
+set_location_assignment PIN_C1 -to HEXOUT[17]
+set_location_assignment PIN_C2 -to HEXOUT[16]
+set_location_assignment PIN_G6 -to HEXOUT[15]
+set_location_assignment PIN_G5 -to HEXOUT[14]
+set_location_assignment PIN_D1 -to HEXOUT[13]
+set_location_assignment PIN_D2 -to HEXOUT[12]
+set_location_assignment PIN_G3 -to HEXOUT[11]
+set_location_assignment PIN_H4 -to HEXOUT[10]
+set_location_assignment PIN_H5 -to HEXOUT[9]
+set_location_assignment PIN_H6 -to HEXOUT[8]
+set_location_assignment PIN_E1 -to HEXOUT[7]
+set_location_assignment PIN_E2 -to HEXOUT[6]
+set_location_assignment PIN_F1 -to HEXOUT[5]
+set_location_assignment PIN_F2 -to HEXOUT[4]
+set_location_assignment PIN_H1 -to HEXOUT[3]
+set_location_assignment PIN_H2 -to HEXOUT[2]
+set_location_assignment PIN_J1 -to HEXOUT[1]
+set_location_assignment PIN_J2 -to HEXOUT[0]
 set_location_assignment PIN_R20 -to Zout
 set_location_assignment PIN_R21 -to RST
 set_global_assignment -name VHDL_FILE RAM.vhd

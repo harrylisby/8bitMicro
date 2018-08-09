@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+lll	library ieee;
+=======
 library ieee;
+>>>>>>> de5f2c4b23d1e935a3401e9e814b06d818d36326
 use IEEE.STD_LOGIC_UNSIGNED.all;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -96,7 +100,7 @@ BEGIN
 					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
 						
-					ELSIF IR(13 downto 12)="00" THEN
+					ELSIF IR(13 downto 12)="00" THEN    
 						regB <= RDOR;	--escribe en regB la salida de la RAM
 						
 					ELSE
@@ -109,7 +113,6 @@ BEGIN
 					
 					--MOVER CoBuffer a resultToW (?)
 					RWRR <= '1';
-
 					nState <= resultToW;
 
 				WHEN resultToW =>
