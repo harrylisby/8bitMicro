@@ -85,6 +85,13 @@ BEGIN
 					HEXIT <= "1111111111111100001101111001";
 					addrReg <= PC;		-- introduce a PC [addr:ROM] el valor del contador addrReg
 					IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
+					
+					-- IF skipFlag='1' THEN
+						-- IR <= "11100000000000";
+					-- ELSE
+						-- IR <= dataReg;
+					-- END IF;
+					
 					CarryInput <= CoBuffer;	--escribe valor del buffer Co a Ci
 					RWRR <= '1';
 					
@@ -125,8 +132,7 @@ BEGIN
 							WHEN "01" => regW <= mask;
 							WHEN "10" => regW <= mask;
 							WHEN "11" => regW <= mask;
-						END CASE;
-							
+						END CASE;	
 					ELSE
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
@@ -138,6 +144,7 @@ BEGIN
 					--MOVER CoBuffer a resultToW (?)
 					RWRR <= '1';
 					nState <= resultToW;
+					
 				WHEN resultToW =>
 					HEXIT <= "1111111111111100001100110000";
 					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
