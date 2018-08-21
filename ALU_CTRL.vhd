@@ -44,7 +44,8 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 	SIGNAL RADDR: std_logic_vector(6 downto 0); --ram address register;
 	SIGNAL RDIR: std_logic_vector(7 downto 0); --ram data in register;
 	SIGNAL RDOR: std_logic_vector(7 downto 0); --ram data out register;
-	
+--signals para controlador
+	SIGNAL MASK: std_logic_vector(7 downto 0);
 	SIGNAL HEXIT: std_logic_vector(27 downto 0);
 	
 BEGIN
@@ -91,20 +92,40 @@ BEGIN
 
 				WHEN moveToRegisters =>
 					HEXIT <= "1111111111111100001100100100";
-					S <= IR(11 downto 8);		--separa instrucciÃ³n y guarda en S
-					--regB <= IR(7 downto 0);	--separa byte e introduce el byte en regB [B:ALU]
+					
+					IF IR(13 downto 12)="01" THEN	--decodificando para ops de bit si es 01
+						IF IR(11 downto 10)="00" THEN
+							S <= "0100";	--ALU hace AND
+						ELSE IF IR(11 downto 10)="01" THEN
+							S <= "0101";	--ALU hace OR
+					ELSE	--se guarda el S proveniente del IR
+						S <= IR(11 downto 8);		--separa instruccion/operacion y guarda en S
+					END IF;
 
 					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
-						
+						regW <= W;			--mueve el valor de W a regW [A:ALU]
 					ELSIF IR(13 downto 12)="00" THEN    
 						regB <= RDOR;	--escribe en regB la salida de la RAM
+						regW <= W;			--mueve el valor de W a regW [A:ALU]
+					ELSIF IR(13 downto 12)="01" THEN
+						
+						IF IR(11 downto 10)="00" THEN		--se realiza BCF
+						
+						ELSIF IR(11 downto 10)="01" THEN	--se realiza BSF
+						
+						ELSIF IR(11 downto 10)="10" THEN	--Se realiza BTFSS
+						
+						ELSIF IR(11 downto 10)="11" THEN	--Se realiza BTFSC
+						
+						END IF;
+						regW <= mask;
 						
 					ELSE
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
 					
-					regW <= W;			--mueve el valor de W a regW [A:ALU]
+					--regW <= W;			--mueve el valor de W a regW [A:ALU]
 					opIn <= S;			--introduce a opIn [Op:ALU] la instrucciÃ³n
 					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
 					
@@ -133,6 +154,15 @@ BEGIN
 					PC <= addrReg + '1';	--suma +1 a addrReg
 					--agregar Z
 					nState <= progmemRead;
+					
+					00000001
+					00000010
+					00000100
+					00001000
+					00010000
+					00100000
+					01000000
+					10000000
 
 			END CASE;
 		END IF;
