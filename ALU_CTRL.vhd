@@ -138,7 +138,6 @@ BEGIN
 					--MOVER CoBuffer a resultToW (?)
 					RWRR <= '1';
 					nState <= resultToW;
-
 				WHEN resultToW =>
 					HEXIT <= "1111111111111100001100110000";
 					--W <= rValue;	--mueve resultado, rValue [R:ALU] a W
