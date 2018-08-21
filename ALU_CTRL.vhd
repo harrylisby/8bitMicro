@@ -109,18 +109,24 @@ BEGIN
 						regB <= RDOR;	--escribe en regB la salida de la RAM
 						regW <= W;			--mueve el valor de W a regW [A:ALU]
 					ELSIF IR(13 downto 12)="01" THEN
-						
-						IF IR(11 downto 10)="00" THEN		--se realiza BCF
-						
-						ELSIF IR(11 downto 10)="01" THEN	--se realiza BSF
-						
-						ELSIF IR(11 downto 10)="10" THEN	--Se realiza BTFSS
-						
-						ELSIF IR(11 downto 10)="11" THEN	--Se realiza BTFSC
-						
-						END IF;
-						regW <= mask;
-						
+						regB <= RDOR; --se escribe en regB la salida de la RAM
+						CASE IR(9 downto 7) IS
+							WHEN "000" => mask <= "00000001";
+							WHEN "001" => mask <= "00000010";
+							WHEN "010" => mask <= "00000100";
+							WHEN "011" => mask <= "00001000";
+							WHEN "100" => mask <= "00010000";
+							WHEN "101" => mask <= "00100000";
+							WHEN "110" => mask <= "01000000";
+							WHEN "111" => mask <= "10000000";
+						END CASE;
+						CASE IR(11 downto 10) IS
+							WHEN "00" => regW <= NOT mask;
+							WHEN "01" => regW <= mask;
+							WHEN "10" => regW <= mask;
+							WHEN "11" => regW <= mask;
+						END CASE;
+							
 					ELSE
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
@@ -141,12 +147,13 @@ BEGIN
 						W <= rValue;
 						RWRR <= '1';
 					ELSIF IR(13 downto 12)="00" THEN
-						IF IR(7)='0' THEN
-							W <= rValue;
-							RWRR <= '1';
-						ELSE
-							RWRR <= '0';
-						END IF;
+						-- IF IR(7)='0' THEN
+							-- W <= rValue;
+							-- RWRR <= '1';
+						-- ELSE
+							-- RWRR <= '0';
+						-- END IF;
+						W<= rValue;
 					ELSE
 						RWRR <= '1';
 					END IF;
@@ -154,16 +161,6 @@ BEGIN
 					PC <= addrReg + '1';	--suma +1 a addrReg
 					--agregar Z
 					nState <= progmemRead;
-					
-					00000001
-					00000010
-					00000100
-					00001000
-					00010000
-					00100000
-					01000000
-					10000000
-
 			END CASE;
 		END IF;
 	END PROCESS;

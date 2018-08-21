@@ -12,13 +12,7 @@ ARCHITECTURE ROM_ARCH OF ROM IS
 BEGIN
 	PROCESS(addr)
 	BEGIN
-		CASE(addr) IS
-			-- WHEN "0000" => data <= "11100100010100";
-			-- WHEN "0001" => data <= "00100010000101";
-			-- WHEN "0010" => data <= "11100100000000";
-			-- WHEN "0011" => data <= "00100100000101";
-			-- WHEN OTHERS => data <= "00000000000000";
-			
+		CASE(addr) IS		
 			WHEN "0000" => data <= "11100100010100";
 			WHEN "0001" => data <= "00100010000101";
 			WHEN "0010" => data <= "11100100001111";
