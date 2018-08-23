@@ -47,6 +47,7 @@ ARCHITECTURE archALU_CTRL OF ALU_CTRL IS
 --signals para controlador
 	SIGNAL MASK: std_logic_vector(7 downto 0);
 	SIGNAL HEXIT: std_logic_vector(27 downto 0);
+	SIGNAL skipFlag: std_logic:='0';
 	
 BEGIN
 
@@ -84,14 +85,15 @@ BEGIN
 				WHEN progmemRead =>
 					HEXIT <= "1111111111111100001101111001";
 					addrReg <= PC;		-- introduce a PC [addr:ROM] el valor del contador addrReg
-					IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
+					--IR <= dataReg;		-- lee de dataReg [data:ROM] la info y la introduce a IR
 					
-					-- IF skipFlag='1' THEN
-						-- IR <= "11100000000000";
-					-- ELSE
-						-- IR <= dataReg;
-					-- END IF;
+					IF skipFlag='0' THEN
+						IR <= dataReg;
+					ELSE
+						IR <= "11100000000000";
+					END IF;
 					
+					skipFlag<='0';
 					CarryInput <= CoBuffer;	--escribe valor del buffer Co a Ci
 					RWRR <= '1';
 					
@@ -99,15 +101,6 @@ BEGIN
 
 				WHEN moveToRegisters =>
 					HEXIT <= "1111111111111100001100100100";
-					
-					IF IR(13 downto 12)="01" THEN	--decodificando para ops de bit si es 01
-						IF IR(11 downto 10)="00" THEN
-							S <= "0100";	--ALU hace AND
-						ELSE IF IR(11 downto 10)="01" THEN
-							S <= "0101";	--ALU hace OR
-					ELSE	--se guarda el S proveniente del IR
-						S <= IR(11 downto 8);		--separa instruccion/operacion y guarda en S
-					END IF;
 
 					IF IR(13 downto 12)="11" THEN
 						regB <= IR(7 downto 0);	--escribe en regB el dato del bit 7 a 0 de IR
@@ -137,6 +130,16 @@ BEGIN
 						regB <= "00000000";	--en otros casos escribe cero en regB
 					END IF;
 					
+					IF IR(13 downto 12)="01" THEN	--decodificando para ops de bit si es 01
+						IF IR(11 downto 10)="00" THEN
+							S <= "0100";	--ALU hace AND
+						ELSIF IR(11 downto 10)="01" THEN
+							S <= "0101";	--ALU hace OR
+						END IF;
+					ELSE	--se guarda el S proveniente del IR
+						S <= IR(11 downto 8);	--separa instruccion/operacion y guarda en S
+					END IF;
+					
 					--regW <= W;			--mueve el valor de W a regW [A:ALU]
 					opIn <= S;			--introduce a opIn [Op:ALU] la instrucciÃ³n
 					CoBuffer <= CoReg;	--escribe la salida Co a buffer Co 
@@ -153,13 +156,25 @@ BEGIN
 						W <= rValue;
 						RWRR <= '1';
 					ELSIF IR(13 downto 12)="00" THEN
-						-- IF IR(7)='0' THEN
-							-- W <= rValue;
-							-- RWRR <= '1';
-						-- ELSE
-							-- RWRR <= '0';
-						-- END IF;
+						IF IR(7)='0' THEN
+							W <= rValue;
+							RWRR <= '1';
+						ELSE
+							RWRR <= '0';
+						END IF;
 						W<= rValue;
+					ELSIF IR(13 downto 12)="01" THEN
+						IF IR(11)='0' THEN
+							RWRR <= '0';
+						ELSIF IR(11)='1' THEN
+							W <= rValue;
+							IF (IR(10)XNOR ZoReg)='1' THEN
+								skipFlag<='1';
+							ELSE
+								skipFlag<='0';
+							END IF;
+						RWRR<='1';
+						END IF;
 					ELSE
 						RWRR <= '1';
 					END IF;
